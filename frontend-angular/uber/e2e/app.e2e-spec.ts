@@ -1,10 +1,10 @@
-import { UberCamerounPage } from './app.po';
+import { UberPage } from './app.po';
 
-describe('uber-cameroun App', () => {
-  let page: UberCamerounPage;
+describe('uber App', () => {
+  let page: UberPage;
 
   beforeEach(() => {
-    page = new UberCamerounPage();
+    page = new UberPage();
   });
 
   it('should display message saying app works', () => {
