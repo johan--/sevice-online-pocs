@@ -2,4 +2,9 @@
 
 @import 'styles/variables';
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+.content {
+  flex: 1 0 auto;
+}
 

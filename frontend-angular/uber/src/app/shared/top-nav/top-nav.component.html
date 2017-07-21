@@ -1,3 +1,70 @@
-<p>
-  top-nav works!
-</p>
+<div class="topnav">
+  <nav class="navbar navbar-default navbar-toggleable-md bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed"
+            aria-controls="collapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a [routerLink]="homeRoute.home()"><div class="navbar-brand my-1">&nbsp;</div></a>
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="collapsingNavbar">
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"  routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.home">Home</a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+          <a href="javascript:" class="btn"  id="categorieDropdown" ngbDropdownToggle >Categorie</a>
+            <div class="dropdown-menu" [class.dropdown-menu-right]="isCollapsed" aria-labelledby="categorieDropdown">
+              <button class="dropdown-item">Bensikineur</button>
+              <button class="dropdown-item">Taxi</button>
+              <button class="dropdown-item">Hebergement</button>
+              <button class="dropdown-item">Coiffeur</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <div ngbDropdown class="d-inline-block">
+            <a href="javascript:" class="btn"  id="paysDropdown" ngbDropdownToggle >Pays</a>
+            <div class="dropdown-menu" [class.dropdown-menu-right]="isCollapsed" aria-labelledby="paysDropdown">
+              <button class="dropdown-item">Cameroun</button>
+              <button class="dropdown-item">France</button>
+              <button class="dropdown-item">Allemagne</button>
+              <button class="dropdown-item">Belgique</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <div ngbDropdown class="d-inline-block">
+            <a href="javascript:" class="btn"  id="villeDropdown" ngbDropdownToggle >Ville</a>
+            <div class="dropdown-menu" [class.dropdown-menu-right]="isCollapsed" aria-labelledby="villeDropdown">
+              <button class="dropdown-item">Heilbronn</button>
+              <button class="dropdown-item">Paris</button>
+              <button class="dropdown-item">Yaounde</button>
+              <button class="dropdown-item">Douala</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.home">Quartier</a>
+        </li>
+      </ul>
+
+
+
+
+        <div ngbDropdown class="d-inline-block">
+          <a href="javascript:" class="btn" id="userDropdown" ngbDropdownToggle>
+            <span class="fa fa-user-circle"></span>
+            User
+          </a>
+          <div class="dropdown-menu" [class.dropdown-menu-right]="isCollapsed" aria-labelledby="userDropdown">
+            <button class="dropdown-item">User info</button>
+            <button class="dropdown-item">Settings</button>
+            <button class="dropdown-item">Logout</button>
+          </div>
+        </div>
+
+      </div>
+  </nav>
+  <hr class="my-0">
+</div>
