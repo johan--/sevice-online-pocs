@@ -4,6 +4,66 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import '../node_modules/font-awesome/scss/font-awesome';
 
+// The body should be at least as height as the height of the view
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 300px;
+  font-family: "Bosch Office Sans", sans-serif;
+}
+
+// Ensure these elements grow in height at least to the view height
+app-root,
+external-layout,
+internal-layout,
+external-layout > * {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// the router-outlets are dummy objects that should not effect the layout
+external-layout > router-outlet {
+  flex-grow: 0;
+}
+
+// an element that centers its content vertically
+.v-center {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.super-bg {
+  background: $gray-light;
+}
+
+.card {
+  margin-bottom: $spacer-y;
+}
+
+.card-inverse {
+  color: #fff;
+}
+.card-inverse a {
+  color: #fff;
+}
+
+.btn-transparent {
+  background: transparent;
+}
+
+.form-default {
+  max-width: 600px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
 .content {
   flex: 1 0 auto;
 }
