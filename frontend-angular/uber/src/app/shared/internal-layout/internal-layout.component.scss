@@ -1,8 +1,15 @@
+@import "../../../styles/variables";
 
 .content {
   flex-grow: 1;
+  margin: 0;
+  padding-bottom: 65px;
 }
 
 .footer {
   width: 100%;
+}
+
+.margin-top{
+  margin-bottom: 2%;
 }
