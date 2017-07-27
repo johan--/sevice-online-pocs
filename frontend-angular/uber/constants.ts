@@ -9,6 +9,9 @@ export const Constants = {
     changePassword: '/user/changePassword',
     forgotPassword: '/user/forgotPassword',
     profileSetting:'/uber/profile-setting',
+    service:'/uber/service-edit',
+    recherche:'/uber/recherche-edit',
+    timePlanning:'/uber/time-planing',
     error: '/error'
   },
   errors: {
