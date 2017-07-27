@@ -29,6 +29,14 @@ const routes: Routes = [
           title: 'Home'
         }
       },
+
+      {
+        path: 'uber',
+        loadChildren:'app/uber-core/uber-core.module#UberCoreModule',
+        data: {
+          title: 'Uber'
+        }
+      }
     ]
   }
 ];

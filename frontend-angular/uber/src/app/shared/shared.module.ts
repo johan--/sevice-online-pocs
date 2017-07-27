@@ -8,12 +8,14 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {RouterModule} from "@angular/router";
 import { FootNavComponent } from './foot-nav/foot-nav.component';
+import {UberCoreModule} from "../uber-core/uber-core.module";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    UberCoreModule
   ],
   declarations: [ExternalLayoutComponent, InternalLayoutComponent, TopNavComponent, ErrorComponent, MainDashboardComponent, FootNavComponent]
 })
