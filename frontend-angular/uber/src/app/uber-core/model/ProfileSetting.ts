@@ -1,8 +1,10 @@
 export class ProfileSetting {
   id = 0;
-  provider = '';
-  title = '';
-  description = '';
-  image = '';
+  fullName = '';
+  jobTitle = 'WOMAN-BARBER';
+  country = 'CAMEROON';
+  city = 'YAOUNDE';
+  street = 'MIMBOMAN-TERMINUS';
   status = 'ACTIVE';
+  mobilePhone = '';
 }

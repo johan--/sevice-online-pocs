@@ -7,10 +7,10 @@
     <div class="card-block">
 
       <form [formGroup]="profileForm" novalidate (ngSubmit)="submitForm()">
-        <form-row [errors]="errors['provider']">
-          <label for="providerName">Provider</label>
-          <input type="text" class="form-control col form-control-warning" id="providerName" formControlName="provider">
-          <span class="message text-muted small">Display name of the provider</span>
+        <form-row [errors]="errors['fullName']">
+          <label for="fullName">Provider</label>
+          <input class="form-control col form-control-warning" id="fullName" formControlName="provider">
+          <span class="message text-muted small">your fullname</span>
         </form-row>
         <form-row [errors]="errors['title']">
           <label for="offerTitle">Title</label>

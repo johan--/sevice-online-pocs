@@ -30,65 +30,95 @@ export class UserEditComponent implements OnInit {
     this.createForm();
   }
 
+
   createForm(){
     this.profileForm = this.fb.group({
-      provider: ['',
+
+      fullName: ['',
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255)
         ]
       ],
-      title: ['',
+      jobTitle: ['',
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255)
         ]
       ],
-      image: ['',
+      street: ['',
         [
+          Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255)
         ]
       ],
-      description: ['',
-        [
-          Validators.required
-        ]
-      ],
-      requiredPoints: ['',
+      country: ['',
         [
           Validators.required,
-          Validators.pattern(/^[0-9]+$/)
+          Validators.minLength(3),
+          Validators.maxLength(255)
+        ]
+      ],
+      city: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(255)
         ]
       ],
       status: [
         '', Validators.required
-      ]
+      ],
+      email: ['',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+      mobilePhone: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(255)
+        ]
+      ],
     });
 
+
+
     this.errorMessages = {
-      provider: {
+      fullName: {
         required: 'The provider is required',
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
       },
-      title: {
+      jobTitle: {
         required: 'The title is required',
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
       },
-      image: {
+      street: {
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
       },
-      description: {
-        required: 'Please provide a description'
+      city: {
+        minlength: 'Please provide at least 3 characters',
+        maxlength: 'Please do not use more than 255 characters'
       },
-      requiredPoints: {
-        required: 'The points are required',
-        pattern: 'Please use only digits'
+      country: {
+        minlength: 'Please provide at least 3 characters',
+        maxlength: 'Please do not use more than 255 characters'
+      },
+      email: {
+        required: 'The E-Mail address is required',
+        email: 'The current E-Mail is not valid'
+      },
+      mobilePhone: {
+        minlength: 'Please provide at least 3 characters',
+        maxlength: 'Please do not use more than 255 characters'
       },
       status: {
         required: 'The status is required',
@@ -106,12 +136,14 @@ export class UserEditComponent implements OnInit {
   submitForm() {
     this.globalError = null;
     const postData: RegisterProfileRequest = {
-      provider: this.profileForm.value.provider,
-      description: this.profileForm.value.description,
-      image: this.profileForm.value.image,
-      requiredPoints: this.profileForm.value.requiredPoints,
+      fullName: this.profileForm.value.fullName,
+      jobTitle: this.profileForm.value.jobTitle,
+      city: this.profileForm.value.city,
+      country: this.profileForm.value.country,
+      street: this.profileForm.value.street,
+      mobilePhone: this.profileForm.value.mobilePhone,
       status: this.profileForm.value.status,
-      title: this.profileForm.value.title
+
     };
 
     console.log('postData', postData);

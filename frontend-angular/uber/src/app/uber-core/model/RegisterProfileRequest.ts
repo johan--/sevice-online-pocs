@@ -7,33 +7,38 @@ import * as models from './models';
 
 export interface RegisterProfileRequest {
   /**
-   * Description of the offer
+   * User fullname
    */
-  description?: string;
+  fullName?: string;
 
   /**
-   * URL to image for the offer
+   * User Profession
    */
-  image?: string;
+  jobTitle?: string;
 
   /**
-   * The provider of the offer
-   */
-  provider?: string;
-
-  /**
-   * The points required to buy a voucher from that offer
-   */
-  requiredPoints?: number;
-
-  /**
-   * Status of the offer
+   * Status of the User
    */
   status?: string;
 
   /**
-   * Title of the offer
+   * User country
    */
-  title?: string;
+  country?: string;
+
+  /**
+   * User city
+   */
+  city?: string;
+
+  /**
+   * User street
+   */
+  street?: string;
+
+  /**
+   * User mobile-phone
+   */
+  mobilePhone?: string;
 
 }
