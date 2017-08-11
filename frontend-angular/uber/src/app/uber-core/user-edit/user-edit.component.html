@@ -2,48 +2,49 @@
 
   <div class="card">
     <h6 class="card-header">
-      <ng-container >Edit Profile</ng-container>
+      <ng-container>Edit Profile</ng-container>
     </h6>
     <div class="card-block">
-
       <form [formGroup]="profileForm" novalidate (ngSubmit)="submitForm()">
         <form-row [errors]="errors['fullName']">
-          <label for="fullName">Provider</label>
-          <input class="form-control col form-control-warning" id="fullName" formControlName="provider">
+          <label for="fullName">Fullname</label>
+          <input class="form-control col form-control-warning" id="fullName" formControlName="fullName">
           <span class="message text-muted small">your fullname</span>
         </form-row>
-        <form-row [errors]="errors['title']">
-          <label for="offerTitle">Title</label>
-          <input type="text" class="form-control col form-control-warning" id="offerTitle" formControlName="title">
-          <span class="message text-muted small">Descriptive title of the offer</span>
+        <form-row [errors]="errors['jobTitle']">
+          <label for="offerTitle">job-title</label>
+          <input type="text" class="form-control col form-control-warning" id="offerTitle" formControlName="jobTitle">
+          <span class="message text-muted small">your job-title</span>
         </form-row>
-        <form-row [errors]="errors['image']">
-          <label for="offerImageUrl">Image URL</label>
-          <input type="text" class="form-control col form-control-warning" id="offerImageUrl" formControlName="image">
-          <span class="message text-muted small">Optional image url</span>
+        <form-row [errors]="errors['country']">
+          <label for="offerDescription">country</label>
+          <textarea type="text" class="form-control col form-control-warning" id="offerDescription"
+                    formControlName="country"></textarea>
+          <span class="message text-muted small">your country</span>
         </form-row>
-        <form-row [errors]="errors['description']">
-          <label for="offerDescription">Description</label>
-          <textarea type="text" class="form-control col form-control-warning" id="offerDescription" formControlName="description"></textarea>
-          <span class="message text-muted small">Detailed description of the offer</span>
+        <form-row [errors]="errors['city']">
+          <label for="offerTitle">city</label>
+            <input type="text" class="form-control col form-control-warning" id="city" formControlName="city">
+            <span class="message text-muted small">your city</span>
         </form-row>
-        <form-row [errors]="errors['requiredPoints']">
-          <label for="offerRequiredPoints">Price</label>
-          <input type="number" class="form-control col form-control-warning" id="offerRequiredPoints" formControlName="requiredPoints">
-          <span class="message text-muted small">Costs for a voucher</span>
+        <form-row [errors]="errors['street']">
+          <label for="offerDescription">street</label>
+          <textarea type="text" class="form-control col form-control-warning" id="street"
+                    formControlName="street"></textarea>
+          <span class="message text-muted small">your street</span>
         </form-row>
-        <form-row [errors]="errors['status']">
-          <label for="offerStatus">Status</label>
-          <select class="custom-select" id="offerStatus" formControlName="status">
-            <option value="ACTIVE">Active</option>
-            <option value="DISABLED">Disabled</option>
-          </select>
-          <span class="message text-muted small">Status of the offer</span>
+        <form-row [errors]="errors['mobilePhone']">
+          <label for="offerDescription">mobile-phone</label>
+          <textarea type="text" class="form-control col form-control-warning" id="mobilePhone"
+                    formControlName="mobilePhone"></textarea>
+          <span class="message text-muted small">your mobile-phone</span>
         </form-row>
+
         <div class="form-group row">
           <label class="col-sm-2"></label>
           <div class="col-sm-10">
-            <button class="btn btn-primary" type="submit" [disabled]="profileForm.pristine || !profileForm.valid">Save</button>
+            <button class="btn btn-primary" type="submit" [disabled]="profileForm.pristine || !profileForm.valid">Save
+            </button>
           </div>
         </div>
 

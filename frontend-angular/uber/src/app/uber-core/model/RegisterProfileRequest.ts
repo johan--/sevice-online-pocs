@@ -17,11 +17,6 @@ export interface RegisterProfileRequest {
   jobTitle?: string;
 
   /**
-   * Status of the User
-   */
-  status?: string;
-
-  /**
    * User country
    */
   country?: string;

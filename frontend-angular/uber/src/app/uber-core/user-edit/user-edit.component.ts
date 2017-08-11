@@ -69,15 +69,6 @@ export class UserEditComponent implements OnInit {
           Validators.maxLength(255)
         ]
       ],
-      status: [
-        '', Validators.required
-      ],
-      email: ['',
-        [
-          Validators.required,
-          Validators.email
-        ]
-      ],
       mobilePhone: ['',
         [
           Validators.required,
@@ -112,16 +103,9 @@ export class UserEditComponent implements OnInit {
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
       },
-      email: {
-        required: 'The E-Mail address is required',
-        email: 'The current E-Mail is not valid'
-      },
       mobilePhone: {
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
-      },
-      status: {
-        required: 'The status is required',
       }
     };
 
@@ -141,8 +125,7 @@ export class UserEditComponent implements OnInit {
       city: this.profileForm.value.city,
       country: this.profileForm.value.country,
       street: this.profileForm.value.street,
-      mobilePhone: this.profileForm.value.mobilePhone,
-      status: this.profileForm.value.status,
+      mobilePhone: this.profileForm.value.mobilePhone
 
     };
 
