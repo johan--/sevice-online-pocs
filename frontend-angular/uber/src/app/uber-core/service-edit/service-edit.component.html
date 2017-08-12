@@ -1,3 +1,62 @@
-<p>
-  service-edit works!
-</p>
+<div class="container-fluid">
+
+  <div class="card">
+    <h6 class="card-header">
+      <ng-container>Edit service</ng-container>
+    </h6>
+    <div class="card-block">
+      <form [formGroup]="serviceForm" novalidate (ngSubmit)="submitForm()">
+        <form-row [errors]="errors['serviceTitle']">
+          <label for="serviceTitle">Service-title</label>
+          <input class="form-control col form-control-warning" id="serviceTitle" formControlName="serviceTitle">
+          <span class="message text-muted small">The service-title</span>
+        </form-row>
+        <form-row [errors]="errors['serviceCategory']">
+          <label for="serviceCategory">Service-category</label>
+          <input type="text" class="form-control col form-control-warning" id="serviceCategory" formControlName="serviceCategory">
+          <span class="message text-muted small">The service.category </span>
+        </form-row>
+        <form-row [errors]="errors['serviceDescription']">
+          <label for="serviceDescription">Service-description</label>
+          <textarea type="text" class="form-control col form-control-warning" id="serviceDescription"
+                    formControlName="serviceDescription"></textarea>
+          <span class="message text-muted small">The service-description</span>
+        </form-row>
+        <form-row [errors]="errors['serviceCountry']">
+          <label for="serviceCountry">service-country</label>
+          <input type="text" class="form-control col form-control-warning" id="serviceCountry" formControlName="serviceCountry">
+          <span class="message text-muted small">The service-country</span>
+        </form-row>
+        <form-row [errors]="errors['serviceCity']">
+          <label for="serviceCity">Service-city</label>
+          <textarea type="text" class="form-control col form-control-warning" id="serviceCity"
+                    formControlName="serviceCity"></textarea>
+          <span class="message text-muted small">The service-city</span>
+        </form-row>
+        <form-row [errors]="errors['serviceStreet']">
+          <label for="serviceStreet">Service-street</label>
+          <textarea type="text" class="form-control col form-control-warning" id="serviceStreet"
+                    formControlName="serviceStreet"></textarea>
+          <span class="message text-muted small">The service-street</span>
+        </form-row>
+        <form-row [errors]="errors['serviceContact']">
+          <label for="serviceContact">Service-contact</label>
+          <textarea type="text" class="form-control col form-control-warning" id="serviceContact"
+                    formControlName="serviceContact"></textarea>
+          <span class="message text-muted small">The service contact</span>
+        </form-row>
+
+        <div class="form-group row">
+          <label class="col-sm-2"></label>
+          <div class="col-sm-10">
+            <button class="btn btn-primary" type="submit" [disabled]="serviceForm.pristine || !serviceForm.valid">Save
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

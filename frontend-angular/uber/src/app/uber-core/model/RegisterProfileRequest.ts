@@ -4,6 +4,7 @@
  */
 
 import * as models from './models';
+import {Location} from "./Location";
 
 export interface RegisterProfileRequest {
   /**
@@ -19,17 +20,12 @@ export interface RegisterProfileRequest {
   /**
    * User country
    */
-  country?: string;
+  userCountry?: string;
 
   /**
    * User city
    */
-  city?: string;
-
-  /**
-   * User street
-   */
-  street?: string;
+  userCity?: string;
 
   /**
    * User mobile-phone

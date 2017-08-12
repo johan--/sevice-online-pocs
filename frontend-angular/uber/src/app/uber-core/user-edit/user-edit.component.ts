@@ -48,13 +48,6 @@ export class UserEditComponent implements OnInit {
           Validators.maxLength(255)
         ]
       ],
-      street: ['',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(255)
-        ]
-      ],
       country: ['',
         [
           Validators.required,
@@ -91,10 +84,6 @@ export class UserEditComponent implements OnInit {
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
       },
-      street: {
-        minlength: 'Please provide at least 3 characters',
-        maxlength: 'Please do not use more than 255 characters'
-      },
       city: {
         minlength: 'Please provide at least 3 characters',
         maxlength: 'Please do not use more than 255 characters'
@@ -122,9 +111,8 @@ export class UserEditComponent implements OnInit {
     const postData: RegisterProfileRequest = {
       fullName: this.profileForm.value.fullName,
       jobTitle: this.profileForm.value.jobTitle,
-      city: this.profileForm.value.city,
-      country: this.profileForm.value.country,
-      street: this.profileForm.value.street,
+      userCity: this.profileForm.value.city,
+      userCountry: this.profileForm.value.country,
       mobilePhone: this.profileForm.value.mobilePhone
 
     };
