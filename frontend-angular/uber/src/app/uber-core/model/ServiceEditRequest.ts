@@ -4,7 +4,7 @@
  */
 
 import * as models from './models';
-import {Location} from "./Location";
+
 
 
 export interface ServiceEditRequest {
