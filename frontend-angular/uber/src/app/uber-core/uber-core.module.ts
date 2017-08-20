@@ -8,14 +8,17 @@ import { FormRowComponent } from './form-row/form-row.component';
 import { ServiceEditComponent } from './service-edit/service-edit.component';
 import { TimePlanningComponent } from './time-planning/time-planning.component';
 import { RechercheEditComponent } from './recherche-edit/recherche-edit.component';
+import { SharedModule } from "../shared/shared.module";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     UberCoreRoutingModule,
-    ReactiveFormsModule,
-    UberCoreRoutingModule
+    NgbModule,
+    ReactiveFormsModule
 
   ],
   declarations: [

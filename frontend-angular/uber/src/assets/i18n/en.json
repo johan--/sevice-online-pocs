@@ -1,0 +1,257 @@
+{
+	"nav": {
+		"home": "Home",
+		"licenses": "Licenses",
+		"sfde": {
+			"title": "Explore",
+			"browser": "Data Browser",
+			"explorer": "Data Explorer",
+			"templateEditor": "Template Designer",
+			"analyzer": "Data Analyzer",
+			"template": "Template Runner",
+			"templateList": "Templates",
+			"log": "Query History"
+		},
+		"service": {
+			"title": "Services",
+			"decoder": "Decoder",
+			"decoderHistory": "Decoding History"
+		},
+		"admin": {
+			"title": "Admin",
+			"dbStats": "DB Stats",
+			"dataProcessing": "Data processing",
+			"inputData": "Input data",
+			"rsaKeys": "RSA Keys",
+			"decoderManager": "Decoder Manager",
+			"projectWizard": "Demo Project Wizard",
+			"userManagement": "User Management"
+		},
+		"user": {
+			"title": "User",
+			"info": "User info",
+			"settings": "Settings",
+			"guides": "Guides",
+			"downloads": "Downloads",
+			"logout": "Logout"
+		},
+		"porsche": {
+			"title": "Porsche",
+			"iBoosterView": "iBooster View",
+			"epsView": "EPS View",
+			"filterTitle": "Filter Options"
+		},
+		"gm": {
+			"title": "GM",
+			"ipbView": "IPB View",
+			"filterTitle": "Filter Options",
+			"vehicleDetails": "Vehicles Details",
+			"download": "Download",
+			"openDetails": "Show Event Details",
+			"action": "Action"
+		},
+		"moveuk": {
+			"title": "Move UK",
+			"tourView": "Tour View",
+			"tsrView": "Traffic Sign Recognition View",
+			"filterTitle": "Filter Options"
+		},
+		"overview": "Overview Dashboard",
+		"contact": "Contact",
+		"imprint": "Imprint",
+		"legal": "Legal note",
+		"privacy": "Privacy",
+		"help": "Help"
+	},
+	"confirmation": {
+		"title": "Confirmation",
+		"text": "Do you confirm this action?",
+		"confirm": "Confirm",
+		"abort": "Cancel",
+		"remove": "Would you really like to delete this item?"
+	},
+	"pipes": {
+		"duration": {
+			"dayHourMinute": "{{days}}d {{hours}}h {{minutes}}m"
+		}
+	},
+	"pagination": {
+		"amountLoaded": "Amount of results loaded in one request",
+		"amountDisplayed": "Amount of results displayed",
+		"first": "First",
+		"last": "Last",
+		"previous": "Previous",
+		"next": "Next"
+	},
+	"userManagement": {
+		"inviteSuccessWithCode": "New User with ID {{userId}} has been invited to the project. Activation code: {{activationCode}}",
+		"inviteSuccess": "User with ID {{userId}} has been invited to the project.",
+		"inviteNewUser": "Invite a new user to the project",
+		"emailAddress": "E-Mail Address",
+		"validEmail": "A valid E-Mail address is required",
+		"sendInvite": "Send invitation",
+		"users": "Users",
+		"mailAll": "E-Mail all visible",
+		"refresh": "Refresh",
+		"email": "E-Mail",
+		"name": "Name",
+		"status": "Status",
+		"mainRole": "Main role",
+		"additionalRoles": "Additional roles",
+		"actions": "Actions",
+		"createdAt": "Created at",
+		"updatedAt": "Updated at",
+		"roles": "Roles"
+	},
+	"stats": {
+		"title": "Statistics",
+		"items": "Documents",
+		"size": "Size",
+		"indices": "Indices"
+	},
+	"queryInterface": {
+		"tagName": "Tag name",
+		"definition": "Data Analyzer",
+		"aggregation": "Aggregation query",
+		"autoFormat": "Auto format",
+		"run": "Run",
+		"tag": "Tag"
+	},
+	"dataExplorer": {
+		"title": "Data Explorer",
+		"all": "All",
+		"selfCreated": "Self created",
+		"addTemplate": "Add Template",
+		"noTemplates": "No Templates available for this project.",
+		"private": "Private",
+		"by": "By",
+		"lastUpdated": "last updated",
+		"executions": "Executions",
+		"last": "last",
+		"explore": "Explore",
+		"edit": "Edit"
+	},
+	"queryLog": {
+		"title": "Query log",
+		"filterTag": "Filter tag",
+		"date": "Date",
+		"project": "Projekt",
+		"query": "Query",
+		"status": "Status",
+		"duration": "Duration",
+		"tag": "Tag",
+		"loadQuery": "Open in Data Analyzer",
+		"remove": "Remove",
+		"loadMore": "Load more ..."
+	},
+	"queryResult": {
+		"resultTitle": "Result",
+		"search": "Search",
+		"refresh": "Refresh",
+		"tree": "Tree",
+		"text": "Text",
+		"showDetails": "Show request details",
+		"statusLabel": "Request status",
+		"loadingResults": "Loading results ...",
+		"error": "Error",
+		"resultEmpty": "Result is empty",
+		"downloadReady": "Your download result is ready",
+		"downloadResult": "Download result",
+		"single": "Single"
+	},
+	"queryTemplate": {
+		"listTitle": "Templates",
+		"name": "Name",
+		"project": "Project",
+		"updated": "Updated",
+		"createdBy": "Created by",
+		"actions": "Actions",
+		"explore": "Explore",
+		"removeParam": "Remove parameter",
+		"moveParam": "Reorder with Drag & Drop",
+		"label": "Display name",
+		"defaultValue": "Default value",
+		"regExpValidation": "RegExp Validation",
+		"description": "Description",
+		"choices": "Provide choices",
+		"paramNameDesc": "The technical parameter name, used for value-replacement in template",
+		"paramDataTypeDesc": "Technical type of the parameter's value",
+		"paramTypeDesc": "How the value selection is displayed",
+		"confirmCreate": "Would you really like to create a new template?",
+		"title": "Template Designer",
+		"shared": "Share with other project members",
+		"queryText": "Template Definition",
+		"parameters": "Parameters",
+		"paramName": "Name",
+		"paramDataType": "Data type",
+		"paramType": "Parameter type",
+		"paramOptional": "Optional",
+		"paramNullable": "Nullable",
+		"addParameter": "Add parameter",
+		"create": "Create new template",
+		"save": "Save template",
+		"remove": "Remove template",
+		"saveAsNew": "Save as new template"
+	},
+	"decoderService": {
+		"errorTooLarge": "The selected file is too large with a size of {{size}}",
+		"specFileNoteMaximum": "Maximum file size is {{sizeLimit}}.",
+		"size": "Size",
+		"removeDecoder": "Remove Decoder",
+		"uploadDecoderSpec": "Upload decoder specification",
+		"decoderHasBeenCreated": "Decoder has beean created",
+		"type": "Type",
+		"specFile": "Specification file",
+		"name": "Name",
+		"description": "Description",
+		"uploadAndDecode": "Upload & Decode",
+		"availableDecoders": "Available decoder",
+		"noDecodersAvailable": "No decoders available",
+		"createdAt": "Created",
+		"by": "by",
+		"decode": "Decode",
+		"decodingRequestHistory": "Decoding request history",
+		"date": "Date",
+		"decoderName": "Decoder name",
+		"payloadSize": "Payload size",
+		"status": "Status",
+		"duration": "Duration",
+		"decoderFileName": "Decoder file name",
+		"user": "User",
+		"hexPayload": "HEX Payload",
+		"decoderInvalid": "Decoder is invalid",
+		"decodingLog": "Decoding log",
+		"decodedAt": "Decoded at",
+		"decodingResult": "Decoding result",
+		"tree": "Tree",
+		"text": "Text"
+	},
+	"projects": {
+		"collection": "Collection",
+		"project": "Project"
+	},
+	"dateTimePicker": {
+		"from": "From",
+		"to": "To",
+		"cancel": "Cancel",
+		"apply": "Apply"
+	},
+	"downloads": {
+		"title": "Downloads",
+		"download": "Download"
+	},
+	"guides": {
+		"title": "Guides",
+		"viewAsHtml": "View as HTML",
+		"viewAsPdf": "View as PDF"
+	},
+	"userInfo": {
+		"title": "User information",
+		"followingRoles": "You have the following roles:"
+	},
+	"settings": {
+		"title": "Settings",
+		"language": "Language",
+		"browserDefault": "Browser language"
+	}
+}

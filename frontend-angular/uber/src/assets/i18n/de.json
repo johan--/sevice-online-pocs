@@ -1,0 +1,257 @@
+{
+	"nav": {
+		"home": "Startseite",
+		"licenses": "Lizenzen",
+		"sfde": {
+			"title": "Explore",
+			"browser": "Data Browser",
+			"explorer": "Data Explorer",
+			"templateEditor": "Template Designer",
+			"analyzer": "Data Analyzer",
+			"template": "Template Runner",
+			"templateList": "Templates",
+			"log": "Query History"
+		},
+		"service": {
+			"title": "Services",
+			"decoder": "Dekoder",
+			"decoderHistory": "Dekoder History"
+		},
+		"admin": {
+			"title": "Admin",
+			"dbStats": "DB Stats",
+			"dataProcessing": "Datenprozessierung",
+			"inputData": "Eingabedaten",
+			"rsaKeys": "RSA Schlüssel",
+			"decoderManager": "Decoder Verwaltung",
+			"projectWizard": "Projekt Wizard",
+			"userManagement": "User Management"
+		},
+		"user": {
+			"title": "Benutzer",
+			"info": "Benutzer Info",
+			"settings": "Einstellungen",
+			"guides": "Anleitungen",
+			"downloads": "Downloads",
+			"logout": "Abmelden"
+		},
+		"porsche": {
+			"title": "Porsche",
+			"iBoosterView": "iBooster View",
+			"epsView": "EPS View",
+			"filterTitle": "Filter Options"
+		},
+		"gm": {
+			"title": "GM",
+			"ipbView": "IPB View",
+			"filterTitle": "Filter Options",
+			"vehicleDetails": "Auto Details",
+			"download": "Herunterladen",
+			"openDetails": "Zeige Details",
+			"action": "Aktion"
+		},
+		"moveuk": {
+			"title": "Move UK",
+			"tourView": "Tour View",
+			"tsrView": "Traffic Sign Recognition View",
+			"filterTitle": "Filter Options"
+		},
+		"overview": "Overview Dashboard",
+		"contact": "Kontakt",
+		"imprint": "Impressum",
+		"legal": "Rechtliche Hinweise",
+		"privacy": "Datenschutz",
+		"help": "Hilfe"
+	},
+	"confirmation": {
+		"title": "Bestätigung",
+		"text": "Bestätigen Sie diese Action?",
+		"confirm": "Bestätigen",
+		"abort": "Abbrechen",
+		"remove": "Möchten Sie diesen Eintrag wirklich löschen?"
+	},
+	"pipes": {
+		"duration": {
+			"dayHourMinute": "{{days}}T {{hours}}S {{minutes}}M"
+		}
+	},
+	"pagination": {
+		"amountLoaded": "Anzahl aufeinmal geladener Resultate",
+		"amountDisplayed": "Anzahl angezeigter Resultate",
+		"first": "Erste",
+		"last": "Letzte",
+		"previous": "Zurück",
+		"next": "Weiter"
+	},
+	"userManagement": {
+		"inviteSuccessWithCode": "Neuer Benutzer mit ID {{userId}} wurde zum Projekt eingeladen. Aktivierungscode: {{activationCode}}",
+		"inviteSuccess": "Benutzer mit ID {{userId}} wurde zum Projekt eingeladen.",
+		"inviteNewUser": "Neuen Benutzer zum Projekt einladen",
+		"emailAddress": "E-Mail Adresse",
+		"validEmail": "Eine gültige E-Mail Adresse wird benötigt",
+		"sendInvite": "Einladung senden",
+		"users": "Benutzer",
+		"mailAll": "E-Mail an alle sichtbaren",
+		"refresh": "Aktualisieren",
+		"email": "E-Mail",
+		"name": "Name",
+		"status": "Status",
+		"mainRole": "Hauptrolle",
+		"additionalRoles": "Weitere Rollen",
+		"actions": "Aktionen",
+		"createdAt": "Erstellt am",
+		"updatedAt": "Aktualisiert am",
+		"roles": "Rollen"
+	},
+	"stats": {
+		"title": "Statistiken",
+		"items": "Dokumente",
+		"size": "Größe",
+		"indices": "Indexe"
+	},
+	"queryInterface": {
+		"tagName": "Tagname",
+		"definition": "Data Analyzer",
+		"aggregation": "Aggregationsabfrage",
+		"autoFormat": "Autoformatierung",
+		"run": "Ausführen",
+		"tag": "Tag"
+	},
+	"dataExplorer": {
+		"title": "Data Explorer",
+		"all": "Alle",
+		"selfCreated": "Selbsterstellt",
+		"addTemplate": "Template hinzufügen",
+		"noTemplates": "Keine Templates für dieses Projekt gefunden",
+		"private": "Privat",
+		"by": "Von",
+		"lastUpdated": "letzte Aktualisierung",
+		"executions": "Ausführungen",
+		"last": "zuletzt",
+		"explore": "Explore",
+		"edit": "Ändern"
+	},
+	"queryLog": {
+		"title": "Abfrage Historie",
+		"filterTag": "Filter Tag",
+		"date": "Datum",
+		"project": "Projekt",
+		"query": "Abfrage",
+		"status": "Status",
+		"duration": "Dauer",
+		"tag": "Tag",
+		"loadQuery": "Öffne Abfrage",
+		"remove": "Löschen",
+		"loadMore": "Mehr laden ..."
+	},
+	"queryResult": {
+		"resultTitle": "Ergebnis",
+		"search": "Suchen",
+		"refresh": "Aktualisieren",
+		"tree": "Baum",
+		"text": "Text",
+		"showDetails": "Anfragedetails anzeigen",
+		"statusLabel": "Anfragestatus",
+		"loadingResults": "Lade Ergebisse ...",
+		"error": "Fehler",
+		"resultEmpty": "Ergebnis ist leer",
+		"downloadReady": "Ergebnis ist bereit zum herunterladen",
+		"downloadResult": "Ergebnis herunterladen",
+		"single": "Einzel"
+	},
+	"queryTemplate": {
+		"listTitle": "Abfrage Templates",
+		"name": "Name",
+		"project": "Projekt",
+		"updated": "Aktualisiert",
+		"createdBy": "Erstellt von",
+		"actions": "Aktionen",
+		"explore": "Explore",
+		"removeParam": "Parameter löschen",
+		"moveParam": "Sortieren mit Drag & Drop",
+		"label": "Anzeigename",
+		"defaultValue": "Default value",
+		"regExpValidation": "RegExp Validierung",
+		"description": "Beschreibung",
+		"choices": "Vorauswahl anbieten",
+		"paramNameDesc": "Technischer Name für die Ersetzung im Template",
+		"paramDataTypeDesc": "Technischer Datentyp des Parameterwertes",
+		"paramTypeDesc": "Wie die Werteeingabe angezeigt werden soll",
+		"confirmCreate": "Möchten Sie wirklich ein eines Template erstellen?",
+		"title": "Template Editor",
+		"shared": "Andere Projektmitglieder dürfen das Template sehen",
+		"queryText": "Template Text",
+		"parameters": "Parameter",
+		"paramName": "Name",
+		"paramDataType": "Datentyp",
+		"paramType": "Parametertyp",
+		"paramOptional": "Optional",
+		"paramNullable": "Null erlaubt",
+		"addParameter": "Parameter hinzufügen",
+		"create": "Neues Template erstellen",
+		"save": "Template speichern",
+		"remove": "Template entfernen",
+		"saveAsNew": "Speichern als neues Template"
+	},
+	"decoderService": {
+		"errorTooLarge": "Die ausgewählte Datei ist mit einer Größe von {{size}} zu groß.",
+		"specFileNoteMaximum": "Die maximale Dateigröße beträgt {{sizeLimit}}.",
+		"size": "Größe",
+		"removeDecoder": "Dekoder entfernen",
+		"uploadDecoderSpec": "Dekoderspezifikation hochladen",
+		"decoderHasBeenCreated": "Dekoder wurde erstellt",
+		"type": "Typ",
+		"specFile": "Spezifikationsdatei",
+		"name": "Name",
+		"description": "Beschreibung",
+		"uploadAndDecode": "Hochladen und dekodieren",
+		"availableDecoders": "Verfügbare Dekoder",
+		"noDecodersAvailable": "Keine Dekoder verfügbar",
+		"createdAt": "Erstellt",
+		"by": "von",
+		"decode": "Dekodieren",
+		"decodingRequestHistory": "Dekoder Anfragehistorie",
+		"date": "Datum",
+		"decoderName": "Dekodername",
+		"payloadSize": "Payload Größe",
+		"status": "Status",
+		"duration": "Dauer",
+		"decoderFileName": "Dekoderdateiname",
+		"user": "Benutzer",
+		"hexPayload": "HEX Daten",
+		"decoderInvalid": "Dekoder ist ungültig",
+		"decodingLog": "Dekodierungsprotokoll",
+		"decodedAt": "Dekodiert am",
+		"decodingResult": "Ergebnis der Dekodierung",
+		"tree": "Baum",
+		"text": "Text"
+	},
+	"projects": {
+		"collection": "Collection",
+		"project": "Projekt"
+	},
+	"dateTimePicker": {
+		"from": "Von",
+		"to": "Bis",
+		"cancel": "Abbrechen",
+		"apply": "Übernehmen"
+	},
+	"downloads": {
+		"title": "Downloads",
+		"download": "Download"
+	},
+	"guides": {
+		"title": "Anleitungen",
+		"viewAsHtml": "Als HTML ansehen",
+		"viewAsPdf": "Als PDF ansehen"
+	},
+	"userInfo": {
+		"title": "Benutzerinformationen",
+		"followingRoles": "Sie haben die folgenden Rollen:"
+	},
+	"settings": {
+		"title": "Einstellungen",
+		"language": "Sprache",
+		"browserDefault": "Browser Standard"
+	}
+}
