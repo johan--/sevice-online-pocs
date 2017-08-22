@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card card-inverse card-level pointer" (click)="navigateToDetails()">
+        <div class="card-block">
+          <div class="row align-content-start align-items-center">
+            <div class="large-count px-3">
+              5 m
+            </div>
+            <div class="px-3">
+              <h4 class="mb-0">Neckar</h4>
+              <div class="small">5 min ago in <strong>Bad Cannstatt</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card card-inverse card-level pointer" (click)="navigateToDetails()">
+        <div class="card-block">
+          <div class="row align-content-start align-items-center">
+            <div class="large-count px-3">
+              +0.1 <span class="very-small">m/hour</span>
+            </div>
+            <div class="px-3">
+              <h4 class="mb-0">Neckar</h4>
+              <div class="small">Overall trend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card card-inverse card-level pointer" (click)="navigateToDetails()">
+        <div class="card-block">
+          <div class="row align-content-start align-items-center">
+            <div class="px-3">
+              <strong>+0.8</strong> <span>max m/hour</span><br>
+              <strong>-1.0</strong> <span>min m/hour</span><br>
+            </div>
+            <div class="px-3">
+              <h4 class="mb-0">Neckar</h4>
+              <div class="small">Alarm limits</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <widget-camera-data class="col-lg-3 col-md-6 col-sm-12" chartType="bar" label="Neckar"
+                        subLabel="Bad Cannstatt"></widget-camera-data>
+
+    <widget-camera-data class="col-lg-3 col-md-6 col-sm-12" chartType="line" label="Neckar"
+                        subLabel="Mundelsheim" risk="high"></widget-camera-data>
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card card-inverse card-level pointer" style="min-height: 158px" (click)="navigateToDetails()">
+        <div class="card-block">
+          <h4 class="mb-0">
+            Neckar
+          </h4>
+          <p>Flood Risk Status</p>
+
+          <button type="button" class="btn risk-moderate">Moderate</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

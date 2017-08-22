@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bosch.sc.ui</groupId>
+  <artifactId>ui-frontend-portal</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.13-SNAPSHOT</version>
+
+  <properties>
+    <node.version>v7.8.0</node.version>
+  </properties>
+
+  <scm>
+    <connection>scm:git:ssh://git@si0vm2398.de.bosch.com:7999/esb/ui-frontend-portal.git</connection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.4</version>
+        <configuration>
+          <nodeVersion>${node.version}</nodeVersion>
+        </configuration>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm run build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/ui-frontend-portal</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>dist</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <localCheckout>true</localCheckout>
+          <tagNameFormat>@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <distributionManagement>
+    <repository>
+      <id>inst-iots-releases</id>
+      <name>Internal releases</name>
+      <url>https://repo.bosch-si.com/content/repositories/inst-iots-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>inst-iots-snapshots</id>
+      <name>Internal snapshots</name>
+      <url>https://repo.bosch-si.com/content/repositories/inst-iots-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+</project>

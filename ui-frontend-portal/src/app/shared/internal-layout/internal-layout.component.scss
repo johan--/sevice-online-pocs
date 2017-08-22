@@ -1,0 +1,14 @@
+@import "../../../styles/defaults";
+
+.bottom-bar {
+  background: $header-bar-background no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 10px;
+}
+.content {
+  flex-grow: 1;
+}
+.footer {
+  width: 100%;
+}

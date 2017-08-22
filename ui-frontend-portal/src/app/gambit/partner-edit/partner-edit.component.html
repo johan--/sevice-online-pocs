@@ -1,0 +1,88 @@
+<div class="container-fluid">
+
+  <div class="card">
+    <h6 class="card-header">
+      <ng-container *ngIf="partnerId=='add'">Add new partner</ng-container>
+      <ng-container *ngIf="partnerId!='add'">Edit partner</ng-container>
+    </h6>
+    <div class="card-block" *loadingProgress="loading">
+
+      <div class="alert alert-warning" *ngIf="globalError">
+        {{globalError}}
+      </div>
+
+      <ng-container *ngIf="partnerId=='add'">
+        <p>
+          Before you can create a partner user, the partner should have been registered with the identity management
+          system.<br>
+          Provide the following registration link to the partner:<br>
+          <input class="form-control" [value]="getRegistrationUrl()">
+        </p>
+        <p>
+          Once the partner is registered and has activated the account, you can login to the
+          <a [href]="imInfo?.managementUrl" target="_blank">User Management UI</a> and
+          assign the <em>Partner</em> role to the new user.
+        </p>
+      </ng-container>
+
+      <form [formGroup]="partnerForm" novalidate>
+        <form-row [errors]="errors['name']">
+          <label for="partnerName">Name</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerName" formControlName="name">
+          <span class="message text-muted small">Display name of the partner</span>
+        </form-row>
+        <form-row [errors]="errors['imLoginName']">
+          <label for="partnerUserName">Username</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerUserName"
+                 formControlName="imLoginName">
+          <span class="message text-muted small">
+            Login name of the partner as provided in the
+            <a [href]="imInfo?.managementUrl" target="_blank">User Management UI</a>
+          </span>
+        </form-row>
+        <form-row [errors]="errors['imId']">
+          <label for="partnerImId">IM user id</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerImId" formControlName="imId">
+          <span class="message text-muted small">
+            Login id of the partner as provided in the
+            <a [href]="imInfo?.managementUrl" target="_blank">User Management UI</a>
+          </span>
+        </form-row>
+        <form-row [errors]="errors['email']">
+          <label for="partnerEmail">E-Mail</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerEmail" formControlName="email">
+          <span class="message text-muted small">E-Mail Address of the partner</span>
+        </form-row>
+        <form-row [errors]="errors['voucherRedemptionPin']">
+          <label for="voucher-redemption-pin">Voucher redemption pin</label>
+          <input type="text" class="form-control col form-control-warning" id="voucher-redemption-pin" formControlName="voucherRedemptionPin">
+          <span class="message text-muted small">Voucher redemption pin</span>
+        </form-row>
+        <form-row [errors]="errors['status']">
+          <label for="partnerStatus">Status</label>
+          <select class="custom-select" id="partnerStatus" formControlName="status">
+            <option value="ACTIVE">Active</option>
+            <option value="DISABLED">Disabled</option>
+          </select>
+          <span class="message text-muted small">Status of the partner</span>
+        </form-row>
+        <div class="form-group row">
+          <label class="col-sm-2"></label>
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-primary" (click)="submitEvent('save')" [disabled]="partnerForm.pristine || !partnerForm.valid">Save
+            </button>
+            <button type="button" class="btn btn-primary" (click)="submitEvent('saveAndClose')"
+                    [disabled]="partnerForm.pristine || !partnerForm.valid">Save & Close
+            </button>
+            <a *ngIf="partnerId!='add'" [routerLink]="gambitRoutes.offers(partnerId)" class="btn btn-link">View
+              offers</a>
+            <a *ngIf="partnerId!='add'" [routerLink]="gambitRoutes.shops(partnerId)" class="btn btn-link">View shops</a>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

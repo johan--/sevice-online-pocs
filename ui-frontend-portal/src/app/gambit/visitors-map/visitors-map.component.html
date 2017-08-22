@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-img-bottom">
+
+    <leaflet-map
+      [zoom]="zoom"
+      [center]="center"
+      [height]="'500px'"
+      [popupTpl]="popupTpl"
+    ></leaflet-map>
+
+    <ng-template #popupTpl let-marker="marker">
+      <div><strong>{{marker.objective.name}}</strong></div>
+      <div>Density: {{marker.objective.density}}</div>
+      <div>Ranking: {{marker.objective.ranking}}</div>
+      <div>Air pollution: {{marker.objective.pollution}}</div>
+    </ng-template>
+
+  </div>
+</div>

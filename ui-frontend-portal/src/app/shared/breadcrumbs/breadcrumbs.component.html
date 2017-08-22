@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li *ngFor="let data of breadcrumbs" class="breadcrumb-item">
+    <a [routerLink]="data.urlSegments" routerLinkActive="active">{{data.title}}</a>
+  </li>
+</ol>
+<hr class="mt-0">

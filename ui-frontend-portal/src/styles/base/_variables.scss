@@ -1,0 +1,13 @@
+@import './colors';
+
+$header-logo: url('/assets/img/bosch_logo_150.png');
+$header-bar-background: url('/assets/img/header.png');
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '~font-awesome/fonts';
+
+$enable-rounded: false;
+
+$navbar-default-color:                $black;
+$navbar-default-hover-color:          rgba($black,.7);
+$navbar-default-active-color:         $brand-primary;
+$navbar-default-disabled-color:       rgba($black,.3);

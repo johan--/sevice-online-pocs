@@ -1,0 +1,60 @@
+<script src="../offer-edit/offer-edit.component.ts"></script>
+<div class="container-fluid">
+
+  <div class="card">
+    <h6 class="card-header">
+
+      <ng-container *ngIf="shopId=='add'">Add new Shop</ng-container>
+      <ng-container *ngIf="shopId!='add'">Edit Shop</ng-container>
+
+    </h6>
+    <div class="card-block">
+
+      <form [formGroup]="shopForm" novalidate>
+        <form-row [errors]="errors['provider']">
+          <label for="providerName">Name</label>
+          <input type="text" class="form-control col form-control-warning" id="providerName" formControlName="provider">
+          <span class="message text-muted small">Display name</span>
+        </form-row>
+        <form-row [errors]="errors['address']">
+          <label for="addressName">Address</label>
+          <input type="text" class="form-control col form-control-warning" id="addressName" formControlName="address">
+          <span class="message text-muted small">Address of the shop</span>
+        </form-row>
+        <form-row [errors]="errors['latitude']">
+          <label for="latitudeCoordinate">Latitude</label>
+          <input type="text" class="form-control col form-control-warning" id="latitudeCoordinate" formControlName="latitude">
+          <span class="message text-muted small">Latitude coordinate of the shop</span>
+        </form-row>
+        <form-row [errors]="errors['longitude']">
+          <label for="longitudeCoordinate">Longitude</label>
+          <input type="text" class="form-control col form-control-warning" id="longitudeCoordinate" formControlName="longitude">
+          <span class="message text-muted small">Longitude coordinate of the shop</span>
+        </form-row>
+
+        <form-row [errors]="errors['status']">
+          <label for="partnerStatus">Status</label>
+          <select class="custom-select" id="partnerStatus" formControlName="status">
+            <option value="ACTIVE">Active</option>
+            <option value="DISABLED">Disabled</option>
+          </select>
+          <span class="message text-muted small">Status of the partner</span>
+        </form-row>
+
+        <div class="form-group row">
+          <label class="col-sm-2"></label>
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-primary"  (click)="submitEvent('save')" [disabled]="shopForm.pristine || !shopForm.valid">Save
+            </button>
+            <button  type="button" class="btn btn-primary"  (click)="submitEvent('saveAndClose')"
+                    [disabled]="shopForm.pristine || !shopForm.valid">Save & Close
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,119 @@
+$bahama-blue: rgb(0, 86, 145); // Dark Blue
+$bondi-blue: rgb(0, 168, 176); // Turquoise
+$lima: rgb(120, 190, 32); // Light Green
+$lipstick: rgb(185, 2, 118); // Magenta
+$lochmara: rgb(0, 142, 207); // Light Blue
+$meteorite: rgb(80, 35, 127); // Violet
+$monza: rgb(226, 0, 21); // Red
+$tropical-rain-forest: rgb(0, 98, 73); // Dark Green
+$black: rgb(0, 0, 0); // Black
+$bombay: rgb(191, 192, 194); // Light Gray
+$nevada: rgb(82, 95, 107); // Dark Gray
+$white: rgb(255, 255, 255); // White
+$validation: rgb(120, 190, 32); // Light Green
+$error: rgb(226, 0, 21); // Red
+$warning: rgb(252, 175, 23); // Yellow
+$bahama-blue-pastell: rgb(127, 170, 200); // Dark Blue Pastell
+$bondi-blue-pastell: rgb(127, 211, 215); // Turquoise Pastell
+$lima-pastell: rgb(187, 222, 143); // Light Green Pastell
+$lipstick-pastell: rgb(220, 128, 186); // Magenta Pastell
+$lochmara-pastell: rgb(127, 198, 231); // Light Blue Pastell
+$meteorite-pastell: rgb(167, 145, 191); // Violet Pastell
+$monza-pastell: rgb(240, 127, 138); // Red Pastell
+$tropical-rain-forest-pastell: rgb(127, 176, 164); // Dark Green Pastell
+$bombay-pastell: rgb(223, 223, 224); // Light Gray Pastell
+$nevada-pastell: rgb(168, 175, 181); // Dark Gray Pastell
+$Whisper: rgb(239, 238, 238); //White Pastell
+$black-shade: rgba(0, 0, 0, .2); //black shadow
+$alice: rgb(249, 252, 255); // Alice Blue
+$hawkes: rgb(212, 221, 232); // Hawkes Blue
+$white-smoke: rgb(245, 245, 245); //White shade
+$light-bombay: rgb(204, 204, 204); //Very Light Grey
+$night-rider: rgb(51, 51, 51); // Grey Scale
+$selago: rgb(255, 253, 255); // Honey dew
+$green: rgb(0, 128, 0); // green
+$slate-grey: rgb(119, 136, 153); // Light slate Grey
+$darkgrey: rgb(169, 169, 169); //dark gray
+$gainsboro: rgb(220, 220, 220); //gainsboro
+$lavender: rgb(230, 230, 250); //Lavender
+$curious-blue: rgb(51, 122, 183); //curious-blue
+$orange: rgb(255, 165, 0); // orange
+$blue-bayoux: rgb(79, 104, 130); //blue pastell
+$cornflower-blue: rgb(79, 104, 130); //blue shade
+$silver: rgb(204, 204, 204); //silver
+$gallery: rgba(0, 0, 0, 0.1); //Very Light Grey pastell
+$white-grey: rgba(204, 204, 204, 0.24); //white-grey
+$border-blue: rgb(221, 221, 221); //#ddd
+$box-shadow: rgba(0, 0, 0, 0.1);
+$widget-label: rgb(234, 234, 234);
+$royal-blue: rgb(40, 96, 144);
+$light-box-shadow: rgba(255, 255, 255, 0.1);
+$sea-blue: rgba(0, 176, 168, 0.52);
+$boulder: rgb(119, 119, 119);
+$pizazz: rgba(255, 141, 0, 0.68);
+$greenShade: rgb(86, 123, 87);
+$redShade: rgb(234, 55, 72);
+$grayShade: rgba(82, 95, 107, 0.58);
+$lightGray: rgba(211, 211, 211, 0.63);
+$bondi-blue: rgb(51, 122, 183);
+$room-select-deselect: rgb(80, 80, 80);
+$gray: rgb(128, 128, 128);
+$lightcyan: rgb(76, 185, 186);
+$date-picker-container: rgb(206, 212, 218);
+
+
+$rb-red: 				rgb(226,0,21);
+// workaround! lighten by 50% did not work
+$rb-red-light: 			rgb(243,153,123);
+$rb-red-dark: 			darken($rb-red, 5%);
+$rb-red-darker: 		darken($rb-red, 10%);
+
+$rb-fuchsia: 			rgb(185,2,118);
+// workaround! lighten by 50% did not work
+$rb-fuchsia-light: 		rgb(220,150,190);
+$rb-fuchsia-dark: 		darken($rb-fuchsia, 5%);
+$rb-fuchsia-darker: 	darken($rb-fuchsia, 10%);
+
+$rb-violet: 			rgb(80,35,127);
+// workaround! lighten by 50% did not work
+$rb-violet-light: 		rgb(159,135,188);
+$rb-violet-dark:      	darken($rb-violet, 5%);
+$rb-violet-darker:      darken($rb-violet, 10%);
+
+$rb-dark-blue: 			rgb(0,86,145);
+// workaround! lighten by 50% did not work
+$rb-dark-blue-light: 	rgb(123,165,203);
+$rb-dark-blue-dark: 	darken($rb-dark-blue, 5%);
+$rb-dark-blue-darker: 	darken($rb-dark-blue, 10%);
+
+$rb-light-blue: 		rgb(0,142,207);
+// workaround! lighten by 50% did not work
+$rb-light-blue-light: 	rgb(163,202,237);
+$rb-light-blue-dark: 	darken($rb-light-blue, 5%);
+$rb-light-blue-darker: 	darken($rb-light-blue, 10%);
+
+$rb-turquoise: 			rgb(0,168,176);
+// workaround! lighten by 50% did not work
+$rb-turquoise-light: 	rgb(157,213,222);
+$rb-turquoise-dark: 	darken($rb-turquoise, 5%);
+$rb-turquoise-darker: 	darken($rb-turquoise, 10%);
+
+$rb-light-green: 		rgb(120,190,32);
+// workaround! lighten by 50% did not work
+$rb-light-green-light: 	rgb(195,220,165);
+$rb-light-green-dark: 	darken($rb-light-green, 5%);
+$rb-light-green-darker: darken($rb-light-green, 10%);
+
+$rb-dark-green: 		rgb(0,98,73);
+// workaround! lighten by 50% did not work
+$rb-dark-green-light: 	rgb(128,173,162);
+$rb-dark-green-dark: 	darken($rb-dark-green, 5%);
+$rb-dark-green-darker: 	darken($rb-dark-green, 10%);
+
+$brand-primary:         $rb-dark-blue;
+$brand-success:         $rb-light-green;
+$brand-info:            $rb-turquoise;
+$brand-warning:         $rb-fuchsia;
+$brand-danger:          $rb-red;
+
+$brand-inverse: rgb(120, 190, 32);

@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <h6 class="card-header">Welcome</h6>
+        <div class="card-block">
+          <p>
+            You have the following roles:
+          </p>
+          <ul>
+            <li *ngFor="let name of authService.roles">{{name}}</li>
+          </ul>
+          <p>
+            You have the following permissions:
+          </p>
+          <ul>
+            <li *ngFor="let name of authService.permissions">{{name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="authService.allow.sensors.dashboard">
+      <div class="card">
+        <h6 class="card-header">Sensors</h6>
+        <div class="card-block">
+          <p>
+            <a [routerLink]="routing.sensorsDashboard">
+              <span class="fa fa-dashboard"></span>
+              Sensors Dashboard
+            </a>
+          </p>
+          <p>
+            <a [routerLink]="routing.sensorsFloodMonDashboard">
+              <span class="fa fa-dashboard"></span>
+              Flood Monitoring Dashboard
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="authService.isGambitApp()">
+      <div class="card">
+        <h6 class="card-header">Gambit</h6>
+        <div class="card-block">
+          <p *ngIf="authService.allow.gambit.adminDashboard">
+            <a [routerLink]="routing.gambitAdminDashboard">
+              <span class="fa fa-dashboard"></span>
+              Gambit Admin Dashboard
+            </a>
+          </p>
+          <p *ngIf="authService.allow.gambit.partnerDashboard">
+            <a [routerLink]="routing.gambitPartnerDashboard">
+              <span class="fa fa-dashboard"></span>
+              Gambit Partner Dashboard
+            </a>
+          </p>
+          <p *ngIf="authService.allow.gambit.managePartners">
+            <a [routerLink]="routing.gambitPartners">
+              <span class="fa fa-dashboard"></span>
+              Gambit Partners
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="card">
+  <city-selection (cityChanged)="selectCity($event)"></city-selection>
+
+  <div class="card-block progress" *ngIf="loadingWeatherStations">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"
+         role="progressbar" aria-valuenow="100"
+         aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+  </div>
+  <div class="card-block bg-warning text-white" *ngIf="loadingWeatherStationsFailed">
+    Failed to load cities: {{loadingWeatherStationsFailed}}
+  </div>
+  <div class="card-block" *ngIf="!loadingWeatherStations && !loadingWeatherStationsFailed">
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let weatherStation of weatherStationsByCityId"
+          (click)="toggleWeatherStation(weatherStation)" [class.active]="currentWeatherStation === weatherStation">
+        {{weatherStation.name}} (la={{weatherStation.lat}} lo={{weatherStation.lng}})
+      </li>
+    </ul>
+
+  </div>
+</div>

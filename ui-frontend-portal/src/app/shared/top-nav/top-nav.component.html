@@ -1,0 +1,73 @@
+<div class="topnav">
+  <nav class="navbar navbar-default navbar-toggleable-md bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed"
+            aria-controls="collapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a [routerLink]="homeRoute.home()"><div class="navbar-brand my-1">&nbsp;</div></a>
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="collapsingNavbar">
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.home">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.sensors.dashboard" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.sensorsDashboard">Explore Sensors</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.sensors.floodMonitoring" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.sensorsFloodMonDashboard">Flood Monitoring</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.partnerDashboard" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitPartnerDashboard">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.adminDashboard" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitAdminDashboard">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.managePartners" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitPartners">Partners</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.manageOffers" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitOffers">Offers</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.manageOffers" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitShops">Shops</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.allow.gambit.manageOffers" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="routing.gambitPartnerSetting">Settings</a>
+        </li>
+      </ul>
+
+      <div class="d-inline-block my-2">
+
+        <div ngbDropdown class="d-inline-block" *ngIf="authService.allow.sensors.floodMonitoring">
+          <a href="javascript:" class="btn" id="notificationDropdown" ngbDropdownToggle>
+            <span class="fa fa-bell-o"></span>
+            <span class="badge badge-pill badge-danger notification-badge">2</span>
+          </a>
+          <div class="dropdown-menu"  [class.dropdown-menu-right]="isCollapsed" aria-labelledby="notificationDropdown">
+            <div class="dropdown-item">
+              <span class="text-muted">5 min ago</span> <strong>Stuttgart</strong> Alarm triggered
+            </div>
+            <div class="dropdown-item">
+              <span class="text-muted">10 min ago</span> <strong>Tübingen</strong> Alarm triggered
+            </div>
+          </div>
+        </div>
+
+        <div ngbDropdown class="d-inline-block">
+          <a href="javascript:" class="btn" id="userDropdown" ngbDropdownToggle>
+            <span class="fa fa-user-circle"></span>
+            User
+          </a>
+          <div class="dropdown-menu" [class.dropdown-menu-right]="isCollapsed" aria-labelledby="userDropdown">
+            <button class="dropdown-item" [routerLink]="routing.userInfo">User info</button>
+            <button class="dropdown-item" [routerLink]="routing.userSettings">Settings</button>
+            <button class="dropdown-item" [routerLink]="routing.userLogout">Logout</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <hr class="my-0">
+</div>

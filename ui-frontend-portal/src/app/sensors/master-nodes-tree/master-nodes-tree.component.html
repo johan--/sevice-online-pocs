@@ -1,0 +1,35 @@
+<div class="card">
+  <group-selection (groupChanged)="selectGroup($event)"></group-selection>
+
+  <div class="card-block progress" *ngIf="loadingNodes">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"
+         role="progressbar" aria-valuenow="100"
+         aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+  </div>
+  <div class="card-block bg-warning text-white" *ngIf="loadingNodesFailed">
+    Failed to load groups: {{loadingNodesFailed}}
+  </div>
+  <div class="card-block" *ngIf="!loadingNodes && !loadingNodesFailed">
+    <tree-root
+      [nodes]="getNodes()"
+      [focused]="true"
+      [options]="treeOptions"
+      (onActivate)="activateNode($event.node)"
+      (onUpdateData)="restoreTreeState()"
+    >
+      <ng-template #treeNodeTemplate let-node="node" let-index="index">
+        <div>
+          <span class="fa {{getIconForNode(node.data)}}"></span>
+          <span>{{ node.data.name }}</span>
+          <a (click)="openNodeInfo(node.data)"
+             class="right">
+            <span class="icon-info"></span>
+          </a>
+        </div>
+
+      </ng-template>
+    </tree-root>
+
+  </div>
+</div>
+

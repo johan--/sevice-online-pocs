@@ -1,0 +1,62 @@
+<div class="v-center super-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-6">
+        <div class="card">
+            <img class="card-img-top m-2" src="/assets/img/bosch-logo.png" alt="Bosch Logo"
+                 style="max-width:200px">
+          <div class="card-block">
+            <h1>Login</h1>
+            <p class="text-muted">Sign In to your account</p>
+
+            <div [hidden]="!failedToLogin" class="alert alert-danger">
+              <span *ngIf="failedToLogin=='INVALID'">Invalid credentials</span>
+              <span *ngIf="failedToLogin=='DENIED'">Login denied</span>
+              <span *ngIf="failedToLogin=='TOO_MANY_ATTEMPTS'">Too many attempts</span>
+              <span *ngIf="failedToLogin=='UNKNOWN'">Unknown logon error</span>
+              <span *ngIf="failedToLogin=='LOCKED'">User is locked</span>
+              <span *ngIf="failedToLogin=='PASSWORD_EXPIRED'">Password expired. Please change it.</span>
+              <span *ngIf="failedToLogin=='INITIAL_PASSWORD'">Initial password. Please change it.</span>
+              <span *ngIf="failedToLogin=='NETWORK'">Network error</span>
+            </div>
+
+            <form (ngSubmit)="$event.preventDefault();onSubmit()" #loginForm="ngForm" action="#">
+
+              <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Username" name="name" required
+                       [(ngModel)]="model.name">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Password" name="password"
+                       required [(ngModel)]="model.password">
+              </div>
+              <div class="row" *ngIf="!loading">
+                <div class="col-6">
+                  <button type="submit" class="btn btn-primary"
+                          [disabled]="!loginForm.form.valid">Login
+                  </button>
+                </div>
+                <div class="col-6 text-right">
+                  <a [routerLink]="routing.forgotPassword" class="btn btn-link px-0">Forgot password?</a>
+                </div>
+              </div>
+              <div class="row" *ngIf="loading">
+                <div class="col progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated"
+                       role="progressbar" aria-valuenow="100"
+                       aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <span>© Bosch Software Innovations GmbH</span>
+            <a href="https://ws.bosch.com/de/imprint/en/imprints.php" target="imprint">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-4">
+      <!--<div class="input-group">
+        <span class="fa fa-search input-group-addon"></span>
+        <input type="text" class="form-control" placeholder="Shop name">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">Search</button>
+        </span>
+      </div>-->
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-8 d-flex justify-content-end">
+      <a class="btn btn-primary" [routerLink]="gambitRoutes.shop('add', partnerId)">Add Shop</a>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Address</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+        <tr *ngFor=" let entry of list">
+          <td>
+            <a [routerLink]="gambitRoutes.shop(entry.id, partnerId)">{{entry.provider}}</a>
+
+          </td>
+          <td>
+              <span class="badge"
+                    [class.badge-success]="entry.status=='ACTIVE'"
+                    [class.badge-default]="entry.status!='ACTIVE'">{{entry.status}}</span>
+          </td>
+          <td>
+           {{entry.address}}
+          </td>
+          <td>
+            {{entry.latitude}}
+          </td>
+          <td>
+            {{entry.longitude}}
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+      <pagination [pageData]="pageData" (onNavigate)="onNavigatePage($event)"></pagination>
+
+    </div>
+  </div>
+</div>

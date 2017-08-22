@@ -1,0 +1,70 @@
+@import "../../../styles/defaults";
+
+.topnav {
+
+  .navbar {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-brand {
+    background: $header-logo no-repeat center;
+    background-size: contain;
+    width: 150px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .nav-link {
+    }
+
+    &.active {
+      border-bottom: 2px solid $brand-primary;
+    }
+  }
+
+  .notification-badge {
+    margin-left: -10px;
+    font-size: 60%;
+    vertical-align: super;
+  }
+
+}
+
+.navbar-default {
+  background-color: $selago;
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-default-color;
+
+      @include hover-focus {
+        color: $navbar-default-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-default-disabled-color;
+      }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      color: $navbar-default-active-color;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-light-toggler-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-default-color;
+  }
+}

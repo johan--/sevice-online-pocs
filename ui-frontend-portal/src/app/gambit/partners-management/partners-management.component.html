@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-4">
+      <!--<div class="input-group">
+        <span class="fa fa-search input-group-addon"></span>
+        <input type="text" class="form-control" placeholder="Partner name" (change)="onSearchTextChanged($event.target.value)">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="loadPage()">Search</button>
+        </span>
+      </div>-->
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-8 d-flex justify-content-end">
+      <a class="btn btn-primary" [routerLink]="gambitRoutes.partner('add')">Add Partner</a>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+
+      <div *loadingProgress="loadingList || loadingStats">
+        <div class="alert alert-warning" *ngIf="listError">
+          Failed to load list: {{listError}}
+        </div>
+        <div class="alert alert-warning" *ngIf="statsError">
+          Failed to load stats: {{statsError}}
+        </div>
+
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Partner</th>
+            <th>Status</th>
+            <th>Active offers</th>
+            <th>Shops</th>
+            <th>Redeemed / Vouchers</th>
+          </tr>
+
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let entry of list">
+            <td>
+              <a [routerLink]="gambitRoutes.partner(entry.id, entry.name)">{{entry.name}}</a>
+            </td>
+            <td>
+              <span class="badge"
+                    [class.badge-success]="entry.status=='ACTIVE'"
+                    [class.badge-default]="entry.status!='ACTIVE'">{{entry.status}}</span>
+            </td>
+            <td>
+              <a [routerLink]="gambitRoutes.offers(entry.id)">{{stats[entry.id]?.activeOffers}}</a>
+            </td>
+            <td>
+              <a [routerLink]="gambitRoutes.shops(entry.id)" class="btn btn-link">{{entry.shops.length}}</a>
+            </td>
+            <td>
+              {{stats[entry.id]?.redeemedVouchers}} / {{stats[entry.id]?.vouchers}}
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+
+        <pagination [pageData]="pageData" (onNavigate)="onNavigatePage($event)"></pagination>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<script src="admin-dashboard.component.ts"></script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <historic-count [provider]="providers.devicesOnline" description="Users online today" label="Users" [count]="today.devicesOnline" unit="Users"></historic-count>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <historic-count [provider]="providers.vouchersBought" description="Vouchers bought today" label="Vouchers" [count]="today.vouchersBought" unit="Vouchers"></historic-count>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <historic-count [provider]="providers.vouchersRedeemed" description="Vouchers redeemed today" label="Redeemed" [count]="today.vouchersRedeemed" unit="Vouchers"></historic-count>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <historic-count [provider]="providers.devicesRegistered" description="Games played today" label="Games" [count]="today.devicesRegistered" unit="Games"></historic-count>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <visitors-map></visitors-map>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-3">
+
+      <master-nodes-tree (onFocusNodeChanged)="setFocusNode($event)"
+                         (onNodes)="setNodes($event)"></master-nodes-tree>
+
+      <detail-meta-data [focusNode]="focusNode"></detail-meta-data>
+
+      <master-misc-data (onWeatherStationChanged)="setWeatherStation($event)"></master-misc-data>
+
+    </div>
+    <div class="col-sm-12 col-md-9">
+
+      <div class="card">
+        <div class="card-header">
+          Map
+        </div>
+        <div class="card-img-bottom">
+          <detail-map [focusNode]="focusNode" [nodes]="nodes" [image]="true"></detail-map>
+        </div>
+      </div>
+
+      <detail-graphs [startDate]="dashboardContext.startDate" [endDate]="dashboardContext.endDate"
+                     [focusNode]="focusNode"
+                     [weatherStation]="weatherStation"
+                     (onDatesChanged)="setDateRange($event)"></detail-graphs>
+
+    </div>
+  </div>
+
+</div>

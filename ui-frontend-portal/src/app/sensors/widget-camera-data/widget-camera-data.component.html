@@ -1,0 +1,17 @@
+<div class="card card-inverse card-level pointer" (click)="navigateToDetails()">
+  <div class="card-block pb-0">
+    <div class="float-right">
+      <div class="btn risk-low" *ngIf="risk=='low'">Low</div>
+      <div class="btn risk-moderate" *ngIf="risk=='moderate'">Moderate</div>
+      <div class="btn risk-high" *ngIf="risk=='high'">High</div>
+      <div class="btn risk-very-high" *ngIf="risk=='very-high'">Very high</div>
+    </div>
+    <h4 class="mb-0">
+      {{label}}
+    </h4>
+    <p>{{subLabel}}</p>
+
+  </div>
+  <base-chart generateRandom="10" [type]="chartType" label="Level" style="height:70px;"
+              class="chart-wrapper px-1"></base-chart>
+</div>

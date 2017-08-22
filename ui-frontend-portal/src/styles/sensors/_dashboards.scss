@@ -1,0 +1,35 @@
+/*!
+ * Copyright (c) 2017 Bosch Software Innovations GmbH, Germany. All rights reserved.
+ */
+
+.card-level {
+  @include card-variant($rb-light-blue, $rb-light-blue);
+}
+
+.card-status {
+  @include card-variant($rb-fuchsia-light, $rb-fuchsia-light);
+}
+
+.risk-low {
+  @include button-variant($white, $rb-light-green, $rb-light-blue-dark);
+}
+.risk-moderate {
+  @include button-variant($white, $rb-turquoise, $rb-light-blue-dark);
+}
+.risk-high {
+  @include button-variant($white, $rb-red, $rb-light-blue-dark);
+}
+.risk-very-high {
+  @include button-variant($white, $rb-red, $rb-light-blue-dark);
+}
+
+.risk-unknown {
+  @include button-variant($white, $rb-light-blue-light, $rb-light-blue-dark);
+}
+
+.large-count {
+  font-size: $font-size-base * 2;
+}
+.very-small {
+  font-size: 50%;
+}

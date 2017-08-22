@@ -1,0 +1,12 @@
+<script src="../admin-dashboard/admin-dashboard.component.ts"></script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-lg-6">
+      <historic-count [provider]="providers.vouchersBought" description="Vouchers bought today" label="Vouchers" [count]="today.vouchersBought" unit="Vouchers"></historic-count>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <historic-count [provider]="providers.vouchersRedeemed" description="Vouchers redeemed today" label="Redeemed" [count]="today.vouchersRedeemed" unit="Vouchers"></historic-count>
+    </div>
+
+  </div>
+</div>

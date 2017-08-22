@@ -1,0 +1,22 @@
+<div class="card card-inverse card-primary">
+  <div class="card-block pb-0">
+    <!--
+    <div class="btn-group float-right" dropdown>
+        <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+            <i class="icon-settings"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" dropdownMenu>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+    -->
+    <h4 class="mb-0">
+      {{count}} <small>{{label}}</small>
+    </h4>
+    <p>{{description}}</p>
+  </div>
+  <base-chart [generateRandom]="generateRandom"  [provider]="provider" [type]="type" [label]="unit" style="height:70px;"
+              class="chart-wrapper px-1"></base-chart>
+</div>

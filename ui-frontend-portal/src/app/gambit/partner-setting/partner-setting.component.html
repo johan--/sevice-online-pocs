@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+  <div class="card">
+    <div class="card-block" *loadingProgress="loading">
+
+      <div class="alert alert-warning" *ngIf="globalError">
+        {{globalError}}
+      </div>
+
+      <form [formGroup]="partnerSettingForm" novalidate (ngSubmit)="submitForm()">
+        <form-row [errors]="errors['name']">
+          <label for="partnerName">Name</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerName" formControlName="name">
+          <span class="message text-muted small">Display your name</span>
+        </form-row>
+        <form-row [errors]="errors['email']">
+          <label for="partnerEmail">E-Mail</label>
+          <input type="text" class="form-control col form-control-warning" id="partnerEmail" formControlName="email">
+          <span class="message text-muted small">Display your e-Mail Address</span>
+        </form-row>
+        <form-row [errors]="errors['voucherRedemptionPin']">
+          <label for="voucher-redemption-pin">Secret code</label>
+          <input type="text" class="form-control col form-control-warning" id="voucher-redemption-pin" formControlName="voucherRedemptionPin">
+          <span class="message text-muted small">Display your Secret code</span>
+        </form-row>
+        <div class="form-group row">
+          <label class="col-sm-2"></label>
+          <div class="col-sm-10">
+            <button class="btn btn-primary" type="submit" [disabled]="partnerSettingForm.pristine || !partnerSettingForm.valid">Save</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

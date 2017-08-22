@@ -1,0 +1,28 @@
+<div class="card-header d-flex justify-content-between" *loadingProgress="loadingGroups">
+  <!-- Groups selection  -->
+  <div class="dropdown" ngbDropdown>
+    <button class="btn btn-transparent dropdown-toggle p-0" href="javascript:" data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false" id="groupSelectDropdown" ngbDropdownToggle>{{currentGroup?.name}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="groupSelectDropdown">
+      <a class="dropdown-item" *ngFor="let group of groups" (click)="selectGroup(group)">
+        <i class="fa fa-book"></i> {{group.name}}</a>
+    </div>
+
+  </div>
+
+  <div class="btn-group float-right" ngbDropdown>
+    <button type="button" class="btn btn-transparent dropdown-toggle p-0" ngbDropdownToggle>
+      <i class="fa fa-gear"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <!-- TODO add tags -->
+      <a class="dropdown-item" href="javascript:">Filter by tags</a>
+    </div>
+  </div>
+
+</div>
+<div class="card-block bg-warning text-white" *ngIf="loadingGroupsFailed">
+  Failed to load groups: {{loadingGroupsFailed}}
+</div>

@@ -1,0 +1,28 @@
+<div class="row no-gutters">
+  <div class="col-sm-12" [class.col-md-8]="imageUrl">
+    <agm-map [latitude]="lat"
+                     [longitude]="lng"
+                     [zoom]="zoom"
+                     [disableDefaultUI]="false"
+                     [zoomControl]="false"
+                     (centerChange)="onCenterChanged($event)">
+      <agm-marker
+        *ngFor="let m of markers; let i = index"
+        (markerClick)="clickedMarker(m, i)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [title]="m.title"
+        [iconUrl]="m.icon">
+
+        <agm-info-window>
+          <strong>{{m.title}}</strong>
+        </agm-info-window>
+
+      </agm-marker>
+    </agm-map>
+  </div>
+  <div class="col-sm-12 node-image bg-faded" [class.col-md-4]="imageUrl" *ngIf="imageUrl">
+    <img [src]="imageUrl" alt="Image" class="img-fluid">
+  </div>
+
+</div>

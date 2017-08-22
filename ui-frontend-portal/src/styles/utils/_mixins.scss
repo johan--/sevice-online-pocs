@@ -1,0 +1,13 @@
+@mixin boxShadow($borderColor, $box-shadow: rgba(0, 0, 0, 0.1)) {
+    border: 1px solid $borderColor;
+    box-shadow: 2px 2px 2px $box-shadow;
+}
+
+/* CSS transform e.g. scale */
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+    -o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+    transform: $transforms;
+}

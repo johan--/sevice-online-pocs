@@ -1,0 +1,78 @@
+<div class="container-fluid animated fadeIn" *ngIf="node">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card">
+        <h6 class="card-header">Node</h6>
+        <div class="card-block">
+          <p class="card-text">{{node.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card">
+        <h6 class="card-header">Group</h6>
+        <div class="card-block">
+          <p class="card-text">{{node.group.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card">
+        <h6 class="card-header">Tenant</h6>
+        <div class="card-block">
+          <p class="card-text">{{node.group.tenant.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card">
+        <h6 class="card-header">Tags</h6>
+        <div class="card-block">
+          <button class="btn btn-secondary mr-1 btn-sm" *ngFor="let tag of node.tags">{{tag.id}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card" *ngIf="node.lat && node.lng">
+        <div class="card-header">
+          Location
+        </div>
+        <div class="card-img-bottom">
+          <detail-map [focusNode]="node"></detail-map>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card" *ngIf="imageUrl">
+        <div class="card-header">
+          Picture
+        </div>
+        <div class="card-img-bottom">
+          <img [src]="imageUrl" alt="Image">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <detail-graphs [startDate]="dashboardContext.startDate" [endDate]="dashboardContext.endDate" [focusNode]="node"
+                   (onDatesChanged)="setDateRange($event)"></detail-graphs>
+
+    </div>
+  </div>
+</div>
+<div class="animated fadeIn" *ngIf="!node">
+  Loading ...
+</div>

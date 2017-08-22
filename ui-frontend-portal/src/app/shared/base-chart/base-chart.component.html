@@ -1,0 +1,11 @@
+<ng-template [ngIf]="chartData.dataAvailable">
+  <canvas baseChart class="chart"
+          [datasets]="chartData.dataSets"
+          [options]="chartData.options"
+          [colors]="chartData.colors"
+          [legend]="chartData.legend"
+          [labels]="chartData.labels"
+          [chartType]="chartData.type"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</ng-template>

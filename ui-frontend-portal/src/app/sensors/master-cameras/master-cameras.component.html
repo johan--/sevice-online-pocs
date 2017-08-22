@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <!-- Groups selection  -->
+    <div class="dropdown" ngbDropdown>
+      <button class="btn btn-transparent dropdown-toggle p-0" href="javascript:" data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false" id="groupSelectDropdown" ngbDropdownToggle>Neckar
+      </button>
+      <div class="dropdown-menu" aria-labelledby="groupSelectDropdown">
+        <a class="dropdown-item">
+          <i class="fa fa-book"></i> Neckar</a>
+      </div>
+
+    </div>
+
+    <div class="btn-group float-right" ngbDropdown>
+      <button type="button" class="btn btn-transparent dropdown-toggle p-0" ngbDropdownToggle>
+        <i class="fa fa-gear"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <!-- TODO add tags -->
+        <a class="dropdown-item" href="javascript:">Filter by tags</a>
+      </div>
+    </div>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <ng-container *ngFor="let cam of getCameraNodes()">
+      <li class="list-group-item justify-content-between pointer"
+          (click)="selectCamera(cam)"
+          [class.active]="cam===focusCam">
+      <span>
+        <span class="fa fa-video-camera mr-1"></span>
+        {{cam.node.name}}
+      </span>
+        <span class="badge badge-default badge-pill" [class.badge-danger]="cam.critical">{{cam.level}}m</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>

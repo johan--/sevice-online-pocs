@@ -1,0 +1,22 @@
+@import "../../../styles/defaults";
+
+.breadcrumb {
+  margin: 0;
+  padding-top: $spacer-y * .5;
+  padding-bottom: $spacer-y * .5;
+  background: none;
+
+  .breadcrumb-item::before {
+    content: '❯';
+    color: $lightGray;
+  }
+
+  .breadcrumb-item a {
+    color: $navbar-light-color;
+  }
+  .breadcrumb-item a:hover {
+    color: $navbar-light-hover-color;
+    text-decoration: none;
+  }
+}
+

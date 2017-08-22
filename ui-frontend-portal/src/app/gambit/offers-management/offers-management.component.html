@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-4">
+      <!--<div class="input-group">
+        <span class="fa fa-search input-group-addon"></span>
+        <input type="text" class="form-control" placeholder="Offer name">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">Search</button>
+        </span>
+      </div>-->
+    </div>
+    <div class="col-sm-3 col-md-6 col-lg-8 d-flex justify-content-end">
+      <a class="btn btn-primary" [routerLink]="gambitRoutes.offer('add', partnerId)">Add Offer</a>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th>Offer</th>
+          <th>Provider</th>
+          <th>Status</th>
+          <th>Price</th>
+          <th>Redeemed / Vouchers</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+        <tr *ngFor=" let entry of list">
+          <td >
+            <a [routerLink]="gambitRoutes.offer(entry.id, partnerId)">{{entry.title}}</a>
+          </td>
+          <td >
+            {{entry.provider}}
+          </td>
+          <td>
+              <span class="badge"
+                    [class.badge-success]="entry.status=='ACTIVE'"
+                    [class.badge-default]="entry.status!='ACTIVE'">{{entry.status }}</span>
+          </td>
+          <td >
+            {{entry.requiredPoints}}
+          </td>
+
+          <td>
+
+            <a *ngIf="stats[entry.id]?.redeemedVouchers || stats[entry.id]?.vouchers" [routerLink]="gambitRoutes.vouchers(entry.id, partnerId)">{{stats[entry.id]?.redeemedVouchers}} / {{stats[entry.id]?.vouchers}}</a>
+            <a *ngIf="!stats[entry.id]?.redeemedVouchers && !stats[entry.id]?.vouchers" >{{stats[entry.id]?.redeemedVouchers}} / {{stats[entry.id]?.vouchers}}</a>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+      <pagination [pageData]="pageData" (onNavigate)="onNavigatePage($event)"></pagination>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="card" *ngIf="node">
+  <div class="card-header">
+    Details of {{node.name}}
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col">Id</div>
+      <div class="col">{{node.id}}</div>
+    </div>
+    <div class="row">
+      <div class="col">Type</div>
+      <div class="col">{{node.type}}</div>
+    </div>
+    <div class="row" *ngIf="node.tags">
+      <div class="col">Tags</div>
+      <div class="col">
+        <span class="badge badge-default" *ngFor="let tag of node.tags">{{tag.id}}</span>
+        <ng-container *ngIf="!node.tags || !node.tags.length">-</ng-container>
+      </div>
+    </div>
+    <div class="row" *ngIf="metadata?.floodLevel">
+      <div class="col">Water level</div>
+      <div class="col"><span class="badge badge-default" [class.badge-danger]="metadata?.floodLevel>=7">{{metadata?.floodLevel | number}}m</span></div>
+    </div>
+    <div class="row" *ngIf="metadata?.floodLevelChange">
+      <div class="col">Level change</div>
+      <div class="col"
+           [class.text-success]="metadata?.floodLevelChange>0"
+           [class.text-danger]="metadata?.floodLevelChange<0">
+        <ng-container *ngIf="metadata?.floodLevelChange>0">+</ng-container>{{metadata?.floodLevelChange | number}}m
+      </div>
+    </div>
+    <div class="row" *ngIf="node.metadata">
+      <div class="col">Metadata</div>
+      <div class="col"><a href="javascript:" (click)="displayMetadata = !displayMetadata">Display</a> </div>
+    </div>
+    <div class="row" [ngbCollapse]="!displayMetadata">
+      <div class="col">
+        <textarea class="small form-control w-100">{{node.metadata||'-'}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>

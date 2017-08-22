@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <h6 class="card-header">User info</h6>
+        <div class="card-block">
+          <p>
+            Login will expire: {{authService.logoutTimeout | date: 'medium'}}
+          </p>
+          <p>
+            You have the following roles:
+          </p>
+          <ul>
+            <li *ngFor="let name of authService.roles">{{name}}</li>
+          </ul>
+          <p>
+            You have the following permissions:
+          </p>
+          <ul>
+            <li *ngFor="let name of authService.permissions">{{name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
