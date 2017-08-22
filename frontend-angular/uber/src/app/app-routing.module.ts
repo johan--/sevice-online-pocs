@@ -36,6 +36,31 @@ const routes: Routes = [
         data: {
           title: 'Uber'
         }
+      },
+      {
+        path: '',
+        component: ExternalLayoutComponent,
+        children: [
+          {
+            path: 'user',
+            loadChildren: 'app/user/user.module#UserModule',
+          },
+          {
+            path: 'error/:error',
+            component: ErrorComponent
+          },
+          {
+            path: '**',
+            component: ErrorComponent
+          }
+        ]
+      },
+      {
+        path: 'user-internal',
+        loadChildren: 'app/user/user.module#UserModule',
+        data: {
+          title: 'User'
+        }
       }
     ]
   }
