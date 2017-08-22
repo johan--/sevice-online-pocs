@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/service-online.iml" filepath="$PROJECT_DIR$/.idea/service-online.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui-frontend-portal/ui-frontend-portal.iml" filepath="$PROJECT_DIR$/ui-frontend-portal/ui-frontend-portal.iml" />
     </modules>
   </component>
 </project>
