@@ -8,6 +8,7 @@ import {ForgotPasswordComponent} from "./forgot-password/forgot-password.compone
 import {InfoComponent} from "./info/info.component";
 import {UserRequiredGuard} from "../../../../../ui-frontend-portal/src/app/auth/user-required.guard";
 import {SettingsComponent} from "./settings/settings.component";
+import {RegistrationComponent} from "./registration/registration.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,13 @@ const routes: Routes = [
       title: 'Logout'
     },
     component: LogoutComponent
+  },
+  {
+    path: 'signUp',
+    data: {
+      title: 'signUp'
+    },
+    component: RegistrationComponent
   },
   {
     path: 'changePassword',
