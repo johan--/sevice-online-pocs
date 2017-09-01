@@ -3,12 +3,14 @@ from rest_framework.response import Response
 from rest_framework import status
 from accounts.serializers import UserSerializer
 from django.contrib.auth.models import User
+from .permissions import PublicEndpoint
 
 
 class UserCreate(APIView):
     """
     Creates the user.
     """
+    permission_classes = (PublicEndpoint,)
 
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
