@@ -1,3 +1,71 @@
-<p>
-  registration works!
-</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-10 col-md-6">
+      <div class="card">
+        <h4 class="card-header">
+          <div style="float:left; position: relative;">Sign Up</div>
+        </h4>
+        <div class="card-block">
+          <div [hidden]="!failedToLogin" class="alert alert-danger">
+            <span *ngIf="failedToLogin=='INVALID'">Invalid credentials</span>
+            <span *ngIf="failedToLogin=='DENIED'">Login denied</span>
+            <span *ngIf="failedToLogin=='TOO_MANY_ATTEMPTS'">Too many attempts</span>
+            <span *ngIf="failedToLogin=='UNKNOWN'">Unknown logon error</span>
+            <span *ngIf="failedToLogin=='LOCKED'">User is locked</span>
+            <span *ngIf="failedToLogin=='PASSWORD_EXPIRED'">Password expired. Please change it.</span>
+            <span *ngIf="failedToLogin=='INITIAL_PASSWORD'">Initial password. Please change it.</span>
+            <span *ngIf="failedToLogin=='NETWORK'">Network error</span>
+          </div>
+
+          <form (ngSubmit)="$event.preventDefault();onSubmit()" #signUpForm="ngForm" action="#">
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input id="login-username" type="email" class="form-control" name="username" value=""
+                     placeholder="email" required [(ngModel)]="model.email">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Password"
+                     name="newPassword1"
+                     required [(ngModel)]="model.newPassword1" equalValidator="newPassword2">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Repeat password"
+                     name="newPassword2"
+                     required [(ngModel)]="model.newPassword2" equalValidator="newPassword1">
+            </div>
+
+
+            <div class="row" *ngIf="!loading">
+              <div class="col-3">
+                <button type="submit" id="btn-login" href="#" class="btn btn-success"
+                        [disabled]="!signUpForm.form.valid">SignUp
+                </button>
+              </div>
+              <div class="col-6 text-right">
+                <a id="btn-fblogin" href="#" class="btn btn-primary">SignUp with Facebook</a>
+              </div>
+            </div>
+          </form>
+
+          <hr class="half-rule"/>
+          <div class="col-md-12 control">
+            <div >
+              <a [routerLink]="routing.userLogin">
+                Back To Login
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <span>© youchercha.com talla ouafeu, edmond</span>
+          <a href="https://www.facebook.com/eddy.talla" target="imprint">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

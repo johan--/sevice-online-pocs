@@ -15,6 +15,8 @@ import {DateTimeRangeValidatorDirective} from "./date-time-range-picker/date-tim
 import {FormsModule} from "@angular/forms";
 import { DurationPipe } from './pipes/duration.pipe';
 import {TranslateModule} from "@ngx-translate/core";
+import { EqualValidatorDirective } from './directives/equal-validator.directive';
+
 
 @NgModule({
   imports: [
@@ -35,6 +37,7 @@ import {TranslateModule} from "@ngx-translate/core";
     DateTimeRangePickerDirective,
     DateTimeRangeValidatorDirective,
     DurationPipe,
+    EqualValidatorDirective,
   ],
   entryComponents: [
     DateTimeRangePickerComponent

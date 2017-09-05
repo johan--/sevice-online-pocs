@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Constants} from "../../../../constants";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'registration',
@@ -6,8 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  model = {
+    email: '',
+    newPassword1: '',
+    newPassword2:''
+  };
 
-  constructor() { }
+  failedToChange: string = null;
+  failedChecks: Array<string> = [];
+
+  loading = false;
+
+  routing = Constants.routing;
+
+  constructor(
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
   }
