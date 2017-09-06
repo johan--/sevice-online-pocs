@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-10 col-md-6">
@@ -18,32 +17,56 @@
             <span *ngIf="failedToLogin=='NETWORK'">Network error</span>
           </div>
 
-          <form (ngSubmit)="$event.preventDefault();onSubmit()" #signUpForm="ngForm" action="#">
+          <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
             <div class="input-group mb-3">
+              <!--<label for="login-email">Email</label>-->
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-              <input id="login-username" type="email" class="form-control" name="username" value=""
-                     placeholder="email" required [(ngModel)]="model.email">
+              <input id="login-email" type="email" class="form-control" name="email" placeholder="Enter your e-mail"
+                     [ngModel]="user.email"
+                     required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+            </div>
+
+            <div class="form-group mb-3">
+              <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+                Email is required and format should be <i>john@doe.com</i>.
+              </small>
+              <!--<span class="message text-muted small">{{errors['email']}}</span>-->
             </div>
 
             <div class="input-group mb-3">
+              <!--<label for="id_password">Password</label>-->
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Password"
-                     name="newPassword1"
-                     required [(ngModel)]="model.newPassword1" equalValidator="newPassword2">
+              <input id="id_password" type="password" class="form-control" placeholder="Enter your password"
+                     name="password"  [ngModel]="model.password"
+                     required validateEqual="confirmPassword" reverse="true" #password="ngModel"
+                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$">
             </div>
 
             <div class="input-group mb-3">
-              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Repeat password"
-                     name="newPassword2"
-                     required [(ngModel)]="model.newPassword2" equalValidator="newPassword1">
+              <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+                Password is required and should be at least 8 characters long\n' +
+                '                  contain one number,one character and one special\n' +
+                '                    character'
+              </small>
             </div>
 
+            <div class="input-group mb-3">
+              <!--<label for="">Retype password</label>-->
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Retype your password"
+                     name="confirmPassword" [ngModel]="model.confirmPassword"
+                     required validateEqual="password" reverse="false" #confirmPassword="ngModel">
+            </div>
+
+            <div class="input-group mb-3">
+              <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
+                Password mismatch
+              </small>
+            </div>
 
             <div class="row" *ngIf="!loading">
               <div class="col-3">
-                <button type="submit" id="btn-login" href="#" class="btn btn-success"
-                        [disabled]="!signUpForm.form.valid">SignUp
+                <button type="submit" class="btn btn-success">SignUp
                 </button>
               </div>
               <div class="col-6 text-right">
@@ -54,7 +77,7 @@
 
           <hr class="half-rule"/>
           <div class="col-md-12 control">
-            <div >
+            <div>
               <a [routerLink]="routing.userLogin">
                 Back To Login
               </a>

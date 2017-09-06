@@ -15,7 +15,8 @@ import {DateTimeRangeValidatorDirective} from "./date-time-range-picker/date-tim
 import {FormsModule} from "@angular/forms";
 import { DurationPipe } from './pipes/duration.pipe';
 import {TranslateModule} from "@ngx-translate/core";
-import { EqualValidatorDirective } from './directives/equal-validator.directive';
+import { EqualValidator } from './directives/equal-validator.directive';
+import {FormRowComponent} from "./form-row/form-row.component";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
     DateTimeRangePickerDirective,
     DateTimeRangeValidatorDirective,
     DurationPipe,
-    EqualValidatorDirective,
+    EqualValidator,
+    FormRowComponent
   ],
   entryComponents: [
     DateTimeRangePickerComponent
@@ -47,6 +49,9 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
     DateTimeRangePickerDirective,
     DateTimeRangeValidatorDirective,
     DurationPipe,
+    FormRowComponent,
+    EqualValidator
+
   ]
 })
 export class SharedModule { }
