@@ -11,6 +11,7 @@ import {AuthModule} from "./auth/auth.module";
 import {HttpClientModule, HttpClient} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {UserAuthService} from "./auth/user-auth.service";
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,6 +25,7 @@ export function translateHttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule.forRoot(),
@@ -37,7 +39,9 @@ export function translateHttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    UserAuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

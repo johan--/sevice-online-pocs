@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-10 col-md-6">
@@ -7,13 +8,6 @@
         </h4>
         <div class="card-block">
           <div [hidden]="!failedToLogin" class="alert alert-danger">
-            <span *ngIf="failedToLogin=='INVALID'">Invalid credentials</span>
-            <span *ngIf="failedToLogin=='DENIED'">Login denied</span>
-            <span *ngIf="failedToLogin=='TOO_MANY_ATTEMPTS'">Too many attempts</span>
-            <span *ngIf="failedToLogin=='UNKNOWN'">Unknown logon error</span>
-            <span *ngIf="failedToLogin=='LOCKED'">User is locked</span>
-            <span *ngIf="failedToLogin=='PASSWORD_EXPIRED'">Password expired. Please change it.</span>
-            <span *ngIf="failedToLogin=='INITIAL_PASSWORD'">Initial password. Please change it.</span>
             <span *ngIf="failedToLogin=='NETWORK'">Network error</span>
           </div>
 

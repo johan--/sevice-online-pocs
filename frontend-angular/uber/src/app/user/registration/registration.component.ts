@@ -6,6 +6,7 @@ import {getErrors} from '../../shared/form-helper';
 import {SignUp} from '../../uber-core/model/SignUp';
 import {EqualValidator} from "../../shared/directives/equal-validator.directive";
 import {User} from '../../uber-core/model/user';
+import {UserAuthService} from "../../auth/user-auth.service";
 
 @Component({
   selector: 'registration',
@@ -57,7 +58,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private fb: FormBuilder,) {
+              private fb: FormBuilder,
+              private userAuthService: UserAuthService) {
   }
 
   ngOnInit() {
@@ -124,6 +126,24 @@ export class RegistrationComponent implements OnInit {
   save(model: User, isValid: boolean) {
     // call API to save customer
     console.log(model, isValid);
+
+    if(isValid){
+      this.loading = true;
+      this.userAuthService.signUp(model.email, model.password)
+        .subscribe(
+
+          data => {
+            this.loading = false;
+            console.log('Registration successful data', data)
+            this.router.navigate([Constants.routing.userLogin]);
+          },
+          error => {
+            console.log('Registration failed', error);
+            this.loading = false;
+          }
+        )
+
+    }
   }
 
 }
