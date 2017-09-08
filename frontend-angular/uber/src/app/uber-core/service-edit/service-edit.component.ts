@@ -23,7 +23,7 @@ export class ServiceEditComponent implements OnInit {
   loading = false;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class ServiceEditComponent implements OnInit {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(255)
-        ]
+        ],
       ],
       serviceCategory: ['',
         [

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Constants} from "../../../../constants";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {getErrors} from '../../shared/form-helper';
 import {SignUp} from '../../uber-core/model/SignUp';
-import {EqualValidator} from "../../shared/directives/equal-validator.directive";
 import {User} from '../../uber-core/model/user';
 import {UserAuthService} from "../../auth/user-auth.service";
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'registration',
@@ -14,28 +14,9 @@ import {UserAuthService} from "../../auth/user-auth.service";
   styleUrls: ['./registration.component.scss'],
 })
 
-/*export class PasswordValidation {
-
-  static MatchPassword(AC: AbstractControl) {
-    let password = AC.get('password').value; // to get value in input tag
-    let confirmPassword = AC.get('confirmPassword').value; // to get value in input tag
-    if(password != confirmPassword) {
-      console.log('false');
-      AC.get('confirmPassword').setErrors( {MatchPassword: true} )
-    } else {
-      console.log('true');
-      return null
-    }
-  }
-}*/
-
 export class RegistrationComponent implements OnInit {
-  model = {
-    email: '',
-    password: '',
-    confirmPassword: ''
-  };
 
+  user: User;
   failedToChange: string = null;
   failedChecks: Array<string> = [];
 
@@ -51,24 +32,27 @@ export class RegistrationComponent implements OnInit {
 
   signUpForm: FormGroup;
 
+  email: string;
 
 
-  public user: User;
 
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private fb: FormBuilder,
-              private userAuthService: UserAuthService) {
+              private userAuthService: UserAuthService,
+              private localStorageService: LocalStorageService) {
+    this.email = localStorageService.get('variable').toString();
+    console.log('saved settings: ', this.email);
   }
 
   ngOnInit() {
     this.user = {
-      username: '',
-      email: '',
+      email: this.email,
       password: '',
       confirmPassword: ''
-    }
+    };
+
   }
 
   createForm() {
@@ -144,6 +128,13 @@ export class RegistrationComponent implements OnInit {
         )
 
     }
+  }
+
+  valuechange(newValue) {
+    console.log(newValue)
+    this.localStorageService.set('variable', newValue);
+    const settings = this.localStorageService.get('variable');
+    console.log('saved settings: ', settings);
   }
 
 }

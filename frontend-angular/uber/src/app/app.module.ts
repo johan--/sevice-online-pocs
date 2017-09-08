@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {Ng2Webstorage} from 'ngx-webstorage';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
@@ -12,6 +13,9 @@ import {HttpClientModule, HttpClient} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {UserAuthService} from "./auth/user-auth.service";
+import {LocalStorageModule} from 'angular-2-local-storage';
+
+
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,6 +35,11 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     NgbModule.forRoot(),
     SharedModule,
     AuthModule,
+    Ng2Webstorage,
+    LocalStorageModule.withConfig({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -40,7 +49,7 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    UserAuthService
+    UserAuthService,
   ],
   bootstrap: [AppComponent]
 })

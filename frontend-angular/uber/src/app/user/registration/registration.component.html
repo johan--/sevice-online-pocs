@@ -16,9 +16,10 @@
               <!--<label for="login-email">Email</label>-->
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
               <input id="login-email" type="email" class="form-control" name="email" placeholder="Enter your e-mail"
-                     [ngModel]="user.email"
+                     [ngModel]="user.email" (ngModelChange)="valuechange($event)"
                      required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
             </div>
+
 
             <div class="form-group mb-3">
               <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
@@ -31,7 +32,7 @@
               <!--<label for="id_password">Password</label>-->
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
               <input id="id_password" type="password" class="form-control" placeholder="Enter your password"
-                     name="password"  [ngModel]="model.password"
+                     name="password"  [ngModel]="user.password"
                      required validateEqual="confirmPassword" reverse="true" #password="ngModel"
                      pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$">
             </div>
@@ -48,7 +49,7 @@
               <!--<label for="">Retype password</label>-->
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
               <input type="password" class="form-control" placeholder="Retype your password"
-                     name="confirmPassword" [ngModel]="model.confirmPassword"
+                     name="confirmPassword" [ngModel]="user.confirmPassword"
                      required validateEqual="password" reverse="false" #confirmPassword="ngModel">
             </div>
 
