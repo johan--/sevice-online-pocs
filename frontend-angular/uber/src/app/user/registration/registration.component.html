@@ -7,8 +7,10 @@
           <div style="float:left; position: relative;">Sign Up</div>
         </h4>
         <div class="card-block">
-          <div [hidden]="!failedToLogin" class="alert alert-danger">
-            <span *ngIf="failedToLogin=='NETWORK'">Network error</span>
+          <div [hidden]="!failedToSignUp" class="alert alert-danger">
+            <span *ngIf="failedToSignUp=='This field must be unique.'">The Email you enter is already used</span>
+            <span *ngIf="failedToSignUp=='UNKNOWN'">Unknown error please try again or contact us</span>
+            <span *ngIf="failedToSignUp=='DENIED'">SignUp denied</span>
           </div>
 
           <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
@@ -16,7 +18,7 @@
               <!--<label for="login-email">Email</label>-->
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
               <input id="login-email" type="email" class="form-control" name="email" placeholder="Enter your e-mail"
-                     [ngModel]="user.email" (ngModelChange)="valuechange($event)"
+                     [ngModel]="user.email" (ngModelChange)="valueChange($event)"
                      required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
             </div>
 
@@ -39,7 +41,7 @@
 
             <div class="input-group mb-3">
               <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
-                Password is required and should be at least 8 characters long\n' +
+                Password should be at least 8 characters long\n' +
                 '                  contain one number,one character and one special\n' +
                 '                    character'
               </small>
@@ -53,7 +55,7 @@
                      required validateEqual="password" reverse="false" #confirmPassword="ngModel">
             </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" [hidden] = "!confirmPassword">
               <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
                 Password mismatch
               </small>

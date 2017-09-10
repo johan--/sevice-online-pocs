@@ -6,7 +6,8 @@ import {getErrors} from '../../shared/form-helper';
 import {SignUp} from '../../uber-core/model/SignUp';
 import {User} from '../../uber-core/model/user';
 import {UserAuthService} from "../../auth/user-auth.service";
-import { LocalStorageService } from 'angular-2-local-storage';
+import {LocalStorageService} from 'angular-2-local-storage';
+import {SignUpRequest} from "../../uber-core/model/SignUpRequest";
 
 @Component({
   selector: 'registration',
@@ -34,7 +35,9 @@ export class RegistrationComponent implements OnInit {
 
   email: string;
 
+  signUpRequest: SignUpRequest;
 
+  failedToSignUp: string = null;
 
 
   constructor(private route: ActivatedRoute,
@@ -42,7 +45,7 @@ export class RegistrationComponent implements OnInit {
               private fb: FormBuilder,
               private userAuthService: UserAuthService,
               private localStorageService: LocalStorageService) {
-    this.email = localStorageService.get('variable').toString();
+    this.email = localStorageService.get('variable') ? localStorageService.get('variable').toString() : '';
     console.log('saved settings: ', this.email);
   }
 
@@ -110,19 +113,36 @@ export class RegistrationComponent implements OnInit {
   save(model: User, isValid: boolean) {
     // call API to save customer
     console.log(model, isValid);
+    this.failedToSignUp = null;
 
-    if(isValid){
+
+    if (isValid) {
       this.loading = true;
-      this.userAuthService.signUp(model.email, model.password)
+      this.signUpRequest = {
+        username: model.email,
+        email: model.email,
+        password: model.password
+      };
+      this.userAuthService.signUp(this.signUpRequest)
         .subscribe(
-
           data => {
             this.loading = false;
-            console.log('Registration successful data', data)
-            this.router.navigate([Constants.routing.userLogin]);
+            this.router.navigate([Constants.routing.userLogin, data]);
           },
-          error => {
-            console.log('Registration failed', error);
+          e => {
+            if (!e.status) {
+              this.failedToSignUp = 'UNKNOWN';
+            } else if (e['_body'] && !e['_body']['email']){
+              const body = JSON.parse(e['_body']);
+              if(body['email'] && (body['email'].length) == 1){
+                this.failedToSignUp = body['email'][0];
+              }else {
+                this.failedToSignUp = 'Unknown';
+              }
+
+            } else {
+              this.failedToSignUp = 'UNKNOWN';;
+            }
             this.loading = false;
           }
         )
@@ -130,8 +150,8 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  valuechange(newValue) {
-    console.log(newValue)
+  valueChange(newValue) {
+    console.log(newValue);
     this.localStorageService.set('variable', newValue);
     const settings = this.localStorageService.get('variable');
     console.log('saved settings: ', settings);

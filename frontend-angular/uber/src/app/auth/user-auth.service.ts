@@ -3,6 +3,8 @@ import {Http} from '@angular/http';
 import {Router} from '@angular/router';
 import {Observable} from "rxjs/Observable";
 import {Constants} from "../../../constants";
+import {SignUp} from "../uber-core/model/SignUp";
+import {SignUpRequest} from "../uber-core/model/SignUpRequest";
 
 interface LoginResponse {
   status: string,
@@ -61,17 +63,18 @@ export class UserAuthService {
 
   logoutTimeout = null;
   logoutTimeoutTimer = null;
+  urlPrefix: string;
 
   constructor(private router: Router,
               private http: Http) {
+    this.http = http
+    this.urlPrefix = 'http://localhost:8000/'
   }
 
 
-  signUp(email: string, password: string) {
-    return this.http.post('api-auth/account-users', {
-      email: email,
-      password: password
-    }).map(res => res.json());
+  signUp(signUpRequest:SignUpRequest) {
+    console.log('signUp', (this.urlPrefix+"api-auth/account-users"));
+    return this.http.post((this.urlPrefix+"api-auth/account-users"), signUpRequest).map(res => res.json());
   }
 
 }
