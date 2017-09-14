@@ -14,6 +14,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {UserAuthService} from "./auth/user-auth.service";
 import {LocalStorageModule} from 'angular-2-local-storage';
+import {UserRequiredGuard} from './auth/user-required.guard';
+import {AlreadyLoggedInGuard} from './auth/already-logged-in.guard';
 
 
 
@@ -49,7 +51,10 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+
     UserAuthService,
+    UserRequiredGuard,
+    AlreadyLoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

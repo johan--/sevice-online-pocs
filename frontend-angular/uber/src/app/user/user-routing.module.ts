@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
-import {AlreadyLoggedInGuard} from "../../../../../ui-frontend-portal/src/app/auth/already-logged-in.guard";
 import {LogoutComponent} from "./logout/logout.component";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {ForgotPasswordComponent} from "./forgot-password/forgot-password.component";
 import {InfoComponent} from "./info/info.component";
-import {UserRequiredGuard} from "../../../../../ui-frontend-portal/src/app/auth/user-required.guard";
 import {SettingsComponent} from "./settings/settings.component";
 import {RegistrationComponent} from "./registration/registration.component";
+import {UserRequiredGuard} from '../auth/user-required.guard';
+import {AlreadyLoggedInGuard} from '../auth/already-logged-in.guard';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [],
+    canActivate: [AlreadyLoggedInGuard],
     data: {
       title: 'Login'
     }

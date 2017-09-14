@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {getErrors} from '../../shared/form-helper';
 import {SignUp} from '../../uber-core/model/SignUp';
-import {User} from '../../uber-core/model/user';
+import {UserRecorder} from '../../uber-core/model/UserRecorder';
 import {UserAuthService} from "../../auth/user-auth.service";
 import {LocalStorageService} from 'angular-2-local-storage';
 import {SignUpRequest} from "../../uber-core/model/SignUpRequest";
@@ -17,7 +17,7 @@ import {SignUpRequest} from "../../uber-core/model/SignUpRequest";
 
 export class RegistrationComponent implements OnInit {
 
-  user: User;
+  user: UserRecorder;
   failedToChange: string = null;
   failedChecks: Array<string> = [];
 
@@ -110,7 +110,7 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  save(model: User, isValid: boolean) {
+  save(model: UserRecorder, isValid: boolean) {
     // call API to save customer
     console.log(model, isValid);
     this.failedToSignUp = null;
@@ -127,21 +127,24 @@ export class RegistrationComponent implements OnInit {
         .subscribe(
           data => {
             this.loading = false;
-            this.router.navigate([Constants.routing.userLogin, data]);
+            this.router.navigate([Constants.routing.userLogin, {data: data, signUp:true}]);
           },
           e => {
+            console.log(e);
             if (!e.status) {
               this.failedToSignUp = 'UNKNOWN';
-            } else if (e['_body'] && !e['_body']['email']){
+            } else if (e['_body']){
               const body = JSON.parse(e['_body']);
-              if(body['email'] && (body['email'].length) == 1){
+              if( (body['email'])){
                 this.failedToSignUp = body['email'][0];
-              }else {
-                this.failedToSignUp = 'Unknown';
+              }else if (body['username']){
+                this.failedToSignUp = body['username'][0];
+              }else{
+                this.failedToSignUp = 'UNKNOWN'
               }
 
             } else {
-              this.failedToSignUp = 'UNKNOWN';;
+              this.failedToSignUp = 'UNKNOWN';
             }
             this.loading = false;
           }
