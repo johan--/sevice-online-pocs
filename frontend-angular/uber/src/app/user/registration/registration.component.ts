@@ -34,6 +34,7 @@ export class RegistrationComponent implements OnInit {
   signUpForm: FormGroup;
 
   email: string;
+  password: string;
 
   signUpRequest: SignUpRequest;
 
@@ -45,15 +46,16 @@ export class RegistrationComponent implements OnInit {
               private fb: FormBuilder,
               private userAuthService: UserAuthService,
               private localStorageService: LocalStorageService) {
-    this.email = localStorageService.get('variable') ? localStorageService.get('variable').toString() : '';
+    this.email = localStorageService.get('email') ? localStorageService.get('email').toString() : '';
+    this.password = localStorageService.get('password') ? localStorageService.get('password').toString() : '';
     console.log('saved settings: ', this.email);
   }
 
   ngOnInit() {
     this.user = {
       email: this.email,
-      password: '',
-      confirmPassword: ''
+      password: this.password,
+      confirmPassword: this.password,
     };
 
   }
@@ -153,11 +155,8 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  valueChange(newValue) {
-    console.log(newValue);
-    this.localStorageService.set('variable', newValue);
-    const settings = this.localStorageService.get('variable');
-    console.log('saved settings: ', settings);
+  valueChange(key, newValue) {
+    this.localStorageService.set(key, newValue);
   }
 
 }

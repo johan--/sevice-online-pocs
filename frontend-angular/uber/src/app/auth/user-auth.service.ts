@@ -8,10 +8,10 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
-import {Observable} from "rxjs/Observable";
-import {Constants} from "../../../constants";
-import {SignUp} from "../uber-core/model/SignUp";
-import {SignUpRequest} from "../uber-core/model/SignUpRequest";
+import {Observable} from 'rxjs/Observable';
+import {Constants} from '../../../constants';
+import {SignUp} from '../uber-core/model/SignUp';
+import {SignUpRequest} from '../uber-core/model/SignUpRequest';
 import {LoginRequest} from '../uber-core/model/LoginRequest';
 
 interface LoginResponse {
@@ -57,7 +57,7 @@ export class User {
 @Injectable()
 export class UserAuthService {
 
-  baseUrl = '/manage';
+  baseUrl = '/api';
 
   uiInfo: UiInfoResponse = null;
   uiInfoObservable = null;
@@ -104,17 +104,18 @@ export class UserAuthService {
   }
 
 
-
   getUiInfo(invalidate = false) {
+    console.log('getUiInfo');
     if (this.uiInfoObservable && !invalidate) {
       return this.uiInfoObservable;
     }
-    return this.uiInfoObservable = this.http.get('/api/v1/uiInfo')
+    return this.uiInfoObservable = this.http.get('/api/v1/uiInfo/')
       .map(res => res.json() as UiInfoResponse)
       .do(res => {
         console.log('uiInfo', res);
         this.parseUiInfo(res);
       }).catch(err => {
+        console.log('err', err);
         this.uiInfoObservable = null;
         throw err;
       }).publishReplay(1).refCount();
@@ -158,14 +159,58 @@ export class UserAuthService {
   }
 
 
-  signUp(signUpRequest:SignUpRequest) {
-    console.log('signUp', (this.baseUrl+"/api-auth/account-users"));
-    return this.http.post((this.baseUrl+"/api-auth/account-users"), signUpRequest).map(res => res.json());
+  signUp(signUpRequest: SignUpRequest) {
+    console.log('signUp', ('api/account/create/'));
+    return this.http.post(('api/account/create/'), signUpRequest).map(res => res.json());
   }
 
-  login(loginRequest:LoginRequest) {
-    console.log('signUp', (this.urlPrefix+"api-auth/account-users"));
-    return this.http.post((this.urlPrefix+"api-auth/account-users"), loginRequest).map(res => res.json());
+  /*login(loginRequest: LoginRequest) {
+    console.log('signUp', (this.urlPrefix + 'account/create/'));
+    return this.http.post((this.urlPrefix + 'account/create/'), loginRequest).map(res => res.json());
+  }*/
+
+  login(name: string, password: string, imTid: string): Observable<UiInfoResponse> {
+    return this.loginWithBackend(name, password, imTid).do(() => {
+      if (this.redirectUrl) {
+        this.router.navigate([this.redirectUrl]);
+        this.redirectUrl = null;
+        console.log('Login successful, redirect to redirect url');
+      } else if (this.hasRole('DGS User')) {
+        this.router.navigate([Constants.routing.sensorsDashboard]);
+        console.log('Login successful, redirect to sensors dashboard');
+      } else if (this.hasRole('Flood Monitoring User')) {
+        this.router.navigate([Constants.routing.sensorsFloodMonDashboard]);
+        console.log('Login successful, redirect to sensors dashboard');
+      } else {
+        this.router.navigate([Constants.routing.home]);
+        console.log('Login successful, redirect to home');
+      }
+
+    });
+  }
+
+  loginWithBackend(name: string, password: string, imTid: string): Observable<UiInfoResponse> {
+    return this.http.post('/api/v1/authentication/login', {
+      username: name,
+      password: password,
+      imTid: imTid
+    })
+      .map(res => res.json() as LoginResponse)
+      .mergeMap((result: LoginResponse) => {
+        console.log('login result', result);
+        if (result && (result.status === 'INITIAL_PASSWORD' || result.status === 'PASSWORD_EXPIRED')) {
+          if (result.properties && result.properties['change_password_token']) {
+            this.changePasswordToken = result.properties['change_password_token'];
+            this.router.navigate([Constants.routing.changePassword]);
+          }
+        }
+        if (!result || result.status !== 'OK') {
+          const err = new LoginError('Login failed');
+          err.status = result ? result.status : 'NETWORK';
+          throw err;
+        }
+        return this.getUiInfo(true);
+      });
   }
 
   isLoggedIn(): Observable<boolean> {

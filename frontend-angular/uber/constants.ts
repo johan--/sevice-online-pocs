@@ -8,6 +8,8 @@ export const Constants = {
     userSettings: '/user-internal/settings',
     changePassword: '/user/changePassword',
     forgotPassword: '/user/forgotPassword',
+    sensorsDashboard: '/sensors/dashboard',
+    sensorsFloodMonDashboard: '/sensors/flood-monitoring',
     signUp: '/user/signUp',
     profileSetting:'/uber/profile-setting',
     service:'/uber/service-edit',

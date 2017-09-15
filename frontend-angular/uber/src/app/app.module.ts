@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {CookieXSRFStrategy, HttpModule, XSRFStrategy} from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,9 @@ import {LocalStorageModule} from 'angular-2-local-storage';
 import {UserRequiredGuard} from './auth/user-required.guard';
 import {AlreadyLoggedInGuard} from './auth/already-logged-in.guard';
 
-
+export function cookieXSRFStrategyFactory() {
+  return new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN');
+}
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,7 +56,8 @@ export function translateHttpLoaderFactory(http: HttpClient) {
 
     UserAuthService,
     UserRequiredGuard,
-    AlreadyLoggedInGuard
+    AlreadyLoggedInGuard,
+    {provide: XSRFStrategy, useFactory: cookieXSRFStrategyFactory}
   ],
   bootstrap: [AppComponent]
 })
