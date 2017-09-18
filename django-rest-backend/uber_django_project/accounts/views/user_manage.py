@@ -27,6 +27,7 @@ class UserCreate(APIView):
 
 class CurrentUserView(APIView):
     permission_classes = (PublicEndpoint,)
+    print('/home/etallaou/dev/sevice-online-pocs/django-rest-backend/uber_django_project/accounts/views/user_manage.py')
 
     def get(self, request, format='json'):
         if request.user.is_authenticated():

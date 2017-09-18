@@ -1,89 +1,91 @@
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-10 col-md-6">
-      <div class="card">
-        <h4 class="card-header">
-          <div style="float:left; position: relative;">Sign Up</div>
-        </h4>
-        <div class="card-block">
-          <div [hidden]="!failedToSignUp" class="alert alert-danger">
-            <span *ngIf="failedToSignUp=='This field must be unique.'">The Email you enter is already used</span>
-            <span *ngIf="failedToSignUp=='UNKNOWN'">Unknown error please try again or contact us</span>
-            <span *ngIf="failedToSignUp=='DENIED'">SignUp denied</span>
-          </div>
-
-          <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
-            <div class="input-group mb-3">
-              <!--<label for="login-email">Email</label>-->
-              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-              <input id="login-email" type="email" class="form-control" name="email" placeholder="Enter your e-mail"
-                     [ngModel]="user.email" (ngModelChange)="valueChange('email', $event)"
-                     required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+<div class="v-center super-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-6">
+        <div class="card">
+          <h4 class="card-header">
+            <div style="float:left; position: relative;">Sign Up</div>
+          </h4>
+          <div class="card-block">
+            <div [hidden]="!failedToSignUp" class="alert alert-danger">
+              <span *ngIf="failedToSignUp=='This field must be unique.'">The Email you enter is already used</span>
+              <span *ngIf="failedToSignUp=='UNKNOWN'">Unknown error please try again or contact us</span>
+              <span *ngIf="failedToSignUp=='DENIED'">SignUp denied</span>
             </div>
 
-
-            <div class="form-group mb-3">
-              <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
-                Email is required and format should be <i>john@doe.com</i>.
-              </small>
-              <!--<span class="message text-muted small">{{errors['email']}}</span>-->
-            </div>
-
-            <div class="input-group mb-3">
-              <!--<label for="id_password">Password</label>-->
-              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input id="id_password" type="password" class="form-control" placeholder="Enter your password"
-                     name="password"  [ngModel]="user.password" (ngModelChange)="valueChange('password', $event)"
-                     required validateEqual="confirmPassword" reverse="true" #password="ngModel"
-                     pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" >
-            </div>
-
-            <div class="input-group mb-3">
-              <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
-                Password should be at least 8 characters long\n' +
-                '                  contain one number,one character and one special\n' +
-                '                    character'
-              </small>
-            </div>
-
-            <div class="input-group mb-3">
-              <!--<label for="">Retype password</label>-->
-              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Retype your password"
-                     name="confirmPassword" [ngModel]="user.confirmPassword"
-                     required validateEqual="password" reverse="false" #confirmPassword="ngModel">
-            </div>
-
-            <div class="input-group mb-3" [hidden] = "!confirmPassword">
-              <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
-                Password mismatch
-              </small>
-            </div>
-
-            <div class="row" *ngIf="!loading">
-              <div class="col-3">
-                <button type="submit" class="btn btn-success">SignUp
-                </button>
+            <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+              <div class="input-group mb-3">
+                <!--<label for="login-email">Email</label>-->
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input id="login-email" type="email" class="form-control" name="email" placeholder="Enter your e-mail"
+                       [ngModel]="user.email" (ngModelChange)="valueChange('email', $event)"
+                       required #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
               </div>
-              <div class="col-6 text-right">
-                <a id="btn-fblogin" href="#" class="btn btn-primary">SignUp with Facebook</a>
+
+
+              <div class="form-group mb-3">
+                <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+                  Email is required and format should be <i>john@doe.com</i>.
+                </small>
+                <!--<span class="message text-muted small">{{errors['email']}}</span>-->
+              </div>
+
+              <div class="input-group mb-3">
+                <!--<label for="id_password">Password</label>-->
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input id="id_password" type="password" class="form-control" placeholder="Enter your password"
+                       name="password" [ngModel]="user.password" (ngModelChange)="valueChange('password', $event)"
+                       required validateEqual="confirmPassword" reverse="true" #password="ngModel"
+                       pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$">
+              </div>
+
+              <div class="input-group mb-3">
+                <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+                  Password should be at least 8 characters long\n' +
+                  ' contain one number,one character and one special\n' +
+                  ' character'
+                </small>
+              </div>
+
+              <div class="input-group mb-3">
+                <!--<label for="">Retype password</label>-->
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Retype your password"
+                       name="confirmPassword" [ngModel]="user.confirmPassword"
+                       required validateEqual="password" reverse="false" #confirmPassword="ngModel">
+              </div>
+
+              <div class="input-group mb-3" [hidden]="!confirmPassword">
+                <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)"
+                       class="text-danger">
+                  Password mismatch
+                </small>
+              </div>
+
+              <div class="row" *ngIf="!loading">
+                <div class="col-3">
+                  <button type="submit" class="btn btn-success">SignUp
+                  </button>
+                </div>
+                <div class="col-6 text-right">
+                  <a id="btn-fblogin" href="#" class="btn btn-primary">SignUp with Facebook</a>
+                </div>
+              </div>
+            </form>
+
+            <hr class="half-rule"/>
+            <div class="col-md-12 control">
+              <div>
+                <a [routerLink]="routing.userLogin">
+                  Back To Login
+                </a>
               </div>
             </div>
-          </form>
-
-          <hr class="half-rule"/>
-          <div class="col-md-12 control">
-            <div>
-              <a [routerLink]="routing.userLogin">
-                Back To Login
-              </a>
-            </div>
           </div>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <span>© youchercha.com talla ouafeu, edmond</span>
-          <a href="https://www.facebook.com/eddy.talla" target="imprint">Imprint</a>
+          <div class="card-footer d-flex justify-content-between">
+            <span>© youchercha.com talla ouafeu, edmond</span>
+            <a href="https://www.facebook.com/eddy.talla" target="imprint">Imprint</a>
+          </div>
         </div>
       </div>
     </div>

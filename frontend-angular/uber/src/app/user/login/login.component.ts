@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         username: model.email,
         password: model.password
       };
-      this.userAuthService.login(this.loginRequest)
+      this.userAuthService.login(this.loginRequest.username, this.loginRequest.password)
         .subscribe(() => {
             this.loading = false;
           },

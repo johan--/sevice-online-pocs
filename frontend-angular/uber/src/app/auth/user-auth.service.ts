@@ -169,8 +169,8 @@ export class UserAuthService {
     return this.http.post((this.urlPrefix + 'account/create/'), loginRequest).map(res => res.json());
   }*/
 
-  login(name: string, password: string, imTid: string): Observable<UiInfoResponse> {
-    return this.loginWithBackend(name, password, imTid).do(() => {
+  login(name: string, password: string): Observable<UiInfoResponse> {
+    return this.loginWithBackend(name, password).do(() => {
       if (this.redirectUrl) {
         this.router.navigate([this.redirectUrl]);
         this.redirectUrl = null;
@@ -189,11 +189,10 @@ export class UserAuthService {
     });
   }
 
-  loginWithBackend(name: string, password: string, imTid: string): Observable<UiInfoResponse> {
+  loginWithBackend(name: string, password: string): Observable<UiInfoResponse> {
     return this.http.post('/api/v1/authentication/login', {
       username: name,
-      password: password,
-      imTid: imTid
+      password: password
     })
       .map(res => res.json() as LoginResponse)
       .mergeMap((result: LoginResponse) => {
