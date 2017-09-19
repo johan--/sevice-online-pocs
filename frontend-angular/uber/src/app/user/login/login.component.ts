@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Constants} from '../../../../constants';
 import {LocalStorageService} from 'angular-2-local-storage';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,7 +9,7 @@ import {LoginRequest} from '../../uber-core/model/LoginRequest';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
 
@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   signUp: boolean = null;
 
   email: string;
+  password: string;
 
   loginRequest: LoginRequest;
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
               private userAuthService: UserAuthService,
               private localStorageService: LocalStorageService) {
     this.email = localStorageService.get('email') ? localStorageService.get('email').toString() : '';
+    this.password = localStorageService.get('password') ? localStorageService.get('password').toString() : '';
   }
 
   ngOnInit() {
@@ -43,10 +45,30 @@ export class LoginComponent implements OnInit {
     console.log('failedToLogin', this.failedToLogin);
 
     this.user = {
-      email: '',
-      password: ''
+      email: this.email,
+      password: this.password
     };
 
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  public onWindowScroll(e: Event): void {
+    console.log('scrolled');
+  }
+
+  @HostListener('window:unload', [ '$event' ])
+  unloadHandler(e) {
+    alert(`I'm leaving the app!`);
+  }
+
+  @HostListener('window:beforeunload', [ '$event' ])
+  beforeUnloadHander(e) {
+    alert(`I'm leaving the app!`);
+  }
+
+  doSomething() {
+    alert('event');
+    console.log('event', event)
   }
 
   onSubmit(model: UserLogging, isValid: boolean) {
@@ -60,6 +82,7 @@ export class LoginComponent implements OnInit {
             this.loading = false;
           },
           e => {
+            console.log('e', e);
             if (!e.status) {
               this.failedToLogin = 'Unknown error';
             } else {
@@ -71,10 +94,8 @@ export class LoginComponent implements OnInit {
   }
 
   valueChange(newValue) {
-    console.log(newValue);
     this.localStorageService.set('email', newValue);
     const settings = this.localStorageService.get('email');
-    console.log('saved email: ', settings);
   }
 
 }

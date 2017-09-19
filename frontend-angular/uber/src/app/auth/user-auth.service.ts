@@ -190,7 +190,7 @@ export class UserAuthService {
   }
 
   loginWithBackend(name: string, password: string): Observable<UiInfoResponse> {
-    return this.http.post('/api/v1/authentication/login', {
+    return this.http.post('/api/v1/authentication/login/', {
       username: name,
       password: password
     })

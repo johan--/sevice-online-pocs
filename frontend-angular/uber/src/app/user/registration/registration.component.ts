@@ -48,7 +48,6 @@ export class RegistrationComponent implements OnInit {
               private localStorageService: LocalStorageService) {
     this.email = localStorageService.get('email') ? localStorageService.get('email').toString() : '';
     this.password = localStorageService.get('password') ? localStorageService.get('password').toString() : '';
-    console.log('saved settings: ', this.email);
   }
 
   ngOnInit() {
