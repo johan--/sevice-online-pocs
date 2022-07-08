@@ -35,7 +35,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "leaflet": "^1.1.0",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "ng2-charts": "^1.6.0",
     "ngx-webstorage": "^1.8.0",
     "rxjs": "^5.1.0",
